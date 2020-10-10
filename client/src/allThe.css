@@ -1,0 +1,6 @@
+.jumbotron {
+  background-image: url("./images/chalkboard.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #d3e0e7;
+}
