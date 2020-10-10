@@ -5,3 +5,7 @@
 .card {
   height: 50rem;
 }
+
+.searchContainer {
+  background-color: rgb(255, 224, 183);
+}

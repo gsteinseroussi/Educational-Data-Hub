@@ -1,9 +1,12 @@
 //Connect to Mongo database
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
+require("dotenv").config();
 
+console.log(process.env.MONGODB_URI)
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/tempDB').then(
   () => {
+
     console.log('CONNECTED TO MONGO');
   },
   (err) => {
