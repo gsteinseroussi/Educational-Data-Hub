@@ -37,13 +37,14 @@ const App = () => {
       {state.user ? (
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/researcher" component={Researcher} />
         </Switch>
       ) : (
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/home" component={Home} />
-          <Route exact path="/researcher" component={Researcher} />
+          {/* <Route exact path="/researcher" component={Researcher} /> */}
           <Route exact path="/editor" component={Editor} />
           <Route exact path="/educator" component={Educator} />
           <Redirect to="/login" />
