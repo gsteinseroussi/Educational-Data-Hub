@@ -37,6 +37,7 @@ const App = () => {
       {state.user ? (
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/educator" component={Educator} />
         </Switch>
       ) : (
         <Switch>

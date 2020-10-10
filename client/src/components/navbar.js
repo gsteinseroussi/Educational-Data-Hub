@@ -29,7 +29,10 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <Link to="/" className="btn btn-link text-secondary">
-        <span className="text-secondary">home</span>
+        <span className="text-secondary">Home</span>
+      </Link>
+      <Link to="/educator" className="btn btn-link text-secondary">
+        <span className="text-secondary">Educator Page</span>
       </Link>
       <button
         className="navbar-toggler"
@@ -47,7 +50,7 @@ const Navbar = () => {
           {state.user ? (
             <li className="nav-item active">
               <Link to="#" className="btn btn-link text-secondary" onClick={logout}>
-                <span className="text-secondary">logout</span>
+                <span className="text-secondary">Logout</span>
               </Link>
             </li>
           ) : (
