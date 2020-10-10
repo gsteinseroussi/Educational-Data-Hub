@@ -1,8 +1,8 @@
-import axios from 'axios';
-import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { LOADING, UNSET_USER } from '../store/actions';
-import { useStoreContext } from '../store/store';
+import axios from "axios";
+import React from "react";
+import { Link, useHistory } from "react-router-dom";
+import { LOADING, UNSET_USER } from "../store/actions";
+import { useStoreContext } from "../store/store";
 
 const Navbar = () => {
   const [state, dispatch] = useStoreContext();
@@ -14,15 +14,15 @@ const Navbar = () => {
     dispatch({ type: LOADING });
 
     axios
-      .post('/api/users/logout')
+      .post("/api/users/logout")
       .then((response) => {
         if (response.status === 200) {
           dispatch({ type: UNSET_USER });
-          history.replace('/login');
+          history.replace("/login");
         }
       })
       .catch((error) => {
-        console.log('Logout error');
+        console.log("Logout error");
       });
   };
 
@@ -33,6 +33,9 @@ const Navbar = () => {
       </Link>
       <Link to="/educator" className="btn btn-link text-secondary">
         <span className="text-secondary">Educator Page</span>
+      </Link>
+      <Link to="/researcher" className="btn btn-link text-secondary">
+        <span className="text-secondary">researcher</span>
       </Link>
       <button
         className="navbar-toggler"
@@ -49,8 +52,10 @@ const Navbar = () => {
         <ul className="navbar-nav">
           {state.user ? (
             <li className="nav-item active">
+
               <Link to="#" className="btn btn-link text-secondary" onClick={logout}>
                 <span className="text-secondary">Logout</span>
+
               </Link>
             </li>
           ) : (
