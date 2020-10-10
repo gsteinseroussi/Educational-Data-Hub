@@ -1,7 +1,24 @@
 import React from "react";
+import EducatorBrowse from "../components/educatorBrowse"
+import SyllabusPrev from "../components/syllabusPrev";
+import "./educator.css"
 
 const Educator = (props) => {
-  return <div>welcome to curated syllabus content</div>;
+  return (
+  <div className="educatorPage">
+  <div className="jumbotron">
+      <h1 className="display-4">Welcome the curated syllabus content!</h1>
+      <div className="row">
+        <div className="col-md-6">
+    <EducatorBrowse />
+    </div>
+    <div className="col-md-6">
+    <SyllabusPrev  />
+    </div>
+      </div>
+    </div>
+    </div>
+  );
 };
 
 Educator.propTypes = {};

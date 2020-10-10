@@ -8,6 +8,6 @@ const Editor = (props) => {
     )
 };
 
-Editor.propTypes = {},
+Editor.propTypes = {};
 
 export default Editor;
