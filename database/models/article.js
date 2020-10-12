@@ -4,6 +4,8 @@ const Schema = mongoose.Schema;
 const articleSchema = new Schema({
   docLink: { type: String },
   articleName: { type: String, required: true },
+  gradeLevel: [{ type: String, required: true }],
+  subject: { type: String, required: true },
   authorName: { type: String, required: true },
   articleAbstract: { type: String, required: true }
 });
