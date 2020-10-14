@@ -1,4 +1,5 @@
 module.exports = {
   User: require('./user'),
-  Article: require ("./article")
+  Article: require ("./article"),
+  Chats: require ('./chats')
 };
