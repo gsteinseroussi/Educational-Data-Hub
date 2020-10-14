@@ -3,12 +3,12 @@ const Schema = mongoose.Schema;
 
 const articleSchema = new Schema({
   researchDocLink: { type: String },
-  editorDocLink: { type: String, required: false},
-  articleName: { type: String, required: false },
-  gradeLevel: [{ type: String, required: false }],
-  subject: { type: String, required: false },
-  authorName: { type: String, required: false },
-  articleAbstract: { type: String, required: false },
+  editorDocLink: { type: String, default: ""},
+  articleName: { type: String, default: "" },
+  gradeLevel: [{ type: String, default: "" }],
+  subject: { type: String, default: "" },
+  authorName: { type: String, default: "" },
+  articleAbstract: { type: String, default: "" },
 });
 
 const Article = mongoose.model("Article", articleSchema);

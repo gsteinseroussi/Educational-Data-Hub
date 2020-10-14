@@ -1,8 +1,10 @@
 const db = require("../database/models");
-
+const url = require("url")
 //defining methods for articlesController
 module.exports = {
   findAll: function (req, res) {
+    const queryObject = url.parse(req.url, true).query;
+    console.log(req.url);
     db.Article.find(req.query)
       .sort({ date: -1 })
       .then((dbModel) => res.json(dbModel))
