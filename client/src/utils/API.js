@@ -16,6 +16,10 @@ saveArticle: function(articleData){
     return axios.post("api/articles", articleData)
 },
 
+getAssignedArticle: function(){
+return axios.get("/api/articles", { params: { editorDocLink: "" } })
+},
+
 //allows for search by grade level
 getArticleByGrade: function(grade){
     return axios.get("/api/articles", { params: { gradeLevel: grade } })

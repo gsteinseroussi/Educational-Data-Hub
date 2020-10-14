@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-//import API from "../utils/API";
+import API from "../utils/API";
 
 function Researcher() {
   // set component's initial state
@@ -11,25 +11,25 @@ function Researcher() {
     setFormObject({ ...formObject, [name]: value });
   }
 
-  //hanlde form submit uses API.saveArticle method to save data
-  /* function handleFormSubmit(event) {
+  //handle form submit uses API.saveArticle method to save data
+  function handleFormSubmit(event) {
     event.preventDefault();
     if (
-      formObject.docLink &&
+      formObject.researchDocLink &&
       formObject.articleName &&
       formObject.authorName &&
       formObject.articleAbstract
     ) {
       API.saveArticle({
-        docLink: formObject.docLink,
+        researchDocLink: formObject.researchDocLink,
         articleName: formObject.articleName,
         authorName: formObject.authorName,
         articleAbstract: formObject.articleAbstract
       })
-        .then(console.log(req.body))
+        .then(console.log(formObject))
         .catch((err) => console.log(err));
     }
-  } */
+  }
   return (
     <div className="container">
       <div className="row">
@@ -60,19 +60,31 @@ function Researcher() {
                 name="authorName"
                 placeholder="Author Name (required)"
               ></input>
-              <div className="form-group">
-                <textarea
-                  className="form-control mb-4"
-                  onChange={handleInputChange}
-                  name="articleAbstract"
-                  rows="6"
-                  placeholder="Abstract (required)"
-                ></textarea>
-                <button type="button" className="btn btn-secondary">
-                  Submit
-                </button>
-              </div>
             </div>
+            <div className="form-group">
+              <input
+                className="form-control mb-4"
+                onChange={handleInputChange}
+                name="researchDocLink"
+                placeholder="Google Docs Link (required)"
+              ></input>
+            </div>
+            <div className="form-group">
+              <textarea
+                className="form-control mb-4"
+                onChange={handleInputChange}
+                name="articleAbstract"
+                rows="6"
+                placeholder="Abstract (required)"
+              ></textarea>
+            </div>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={handleFormSubmit}
+            >
+              Submit
+            </button>
           </div>
         </div>
       </div>
