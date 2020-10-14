@@ -4,7 +4,7 @@ import "../allThe.css";
 const Home = () => (
   <div className="Home">
     <div className="jumbotron">
-      <h1 className="display-4">Welcome the EDS!</h1>
+      <h1 className="display-4">Welcome to EDS!</h1>
       <p className="lead">
         Log in to access your account, or read on to learn more about
         Educational Data Stream.

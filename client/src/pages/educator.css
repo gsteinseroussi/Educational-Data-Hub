@@ -7,5 +7,7 @@
 }
 
 .searchContainer {
-  background-color: rgb(255, 224, 183);
+  background-image: url("../images/chalkboard.jpeg");
+  color: #a5a5a5;
+  padding: 2em;
 }
