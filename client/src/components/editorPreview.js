@@ -3,7 +3,7 @@ import API from "../utils/API";
 
 const EditorPreview = () => {
 
-    const [article, setArticle] = useState([]);
+    const [article, setArticle] = useState({});
     
 
     //loads article to edit into the assigned area
