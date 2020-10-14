@@ -35,7 +35,10 @@ const Navbar = () => {
         <span className="text-secondary">Educator Page</span>
       </Link>
       <Link to="/researcher" className="btn btn-link text-secondary">
-        <span className="text-secondary">researcher</span>
+        <span className="text-secondary">Researcher</span>
+      </Link>
+      <Link to="/editor" className="btn btn-link text-secondary">
+        <span className="text-secondary">Editor</span>
       </Link>
       <button
         className="navbar-toggler"
