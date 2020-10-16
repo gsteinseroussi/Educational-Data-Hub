@@ -3,7 +3,7 @@ import API from "../utils/API";
 
 const EditorPreview = () => {
 
-    const [article, setArticle] = useState([]);
+    const [article, setArticle] = useState({});
     
 
     //loads article to edit into the assigned area
@@ -16,8 +16,9 @@ const EditorPreview = () => {
         API.getAssignedArticle()
         .then(res=>
            { 
-               console.log(res);
-               setArticle(res.data[0])})
+               console.log("res", res);
+               setArticle(res.data[0]);
+            console.log("article:", article)})
             .catch(err=> console.log(err))
     }
 
@@ -29,8 +30,13 @@ const EditorPreview = () => {
       <div className="card-body">
         <div className="searchContainer">
     <h2>Article to Adapt:</h2>
-    <p>{article.articleName}</p>
-    <p>{article.researchDocLink}</p>
+    
+    
+    <p>{article?.articleName}</p>
+    <p>{article?.researcherDocLink}</p>
+        
+
+    
         </div>
       </div>
     </div>
