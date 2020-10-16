@@ -29,8 +29,8 @@ const EditorPreview = () => {
       <div className="card-body">
         <div className="searchContainer">
     <h2>Article to Adapt:</h2>
-    <p>{article.articleName}</p>
-    <p>{article.researchDocLink}</p>
+    <p>{article?.articleName}</p>
+    <p>{article?.researchDocLink}</p>
         </div>
       </div>
     </div>

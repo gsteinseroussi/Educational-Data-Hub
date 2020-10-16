@@ -15,4 +15,8 @@ router
   .put(articlesController.update)
   .delete(articlesController.remove);
 
+  router
+  .route("/comment/:id")
+  .put(articlesController.updateComment)
+
 module.exports = router;
