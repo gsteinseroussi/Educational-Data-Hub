@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const articleSchema = new Schema({
+const lessonSchema = new Schema({
   researchDocLink: { type: String },
   editorDocLink: { type: String, default: ""},
   articleName: { type: String, default: "" },
@@ -9,8 +9,9 @@ const articleSchema = new Schema({
   subject: { type: String, default: "" },
   authorName: { type: String, default: "" },
   articleAbstract: { type: String, default: "" },
+  commentArray: [{ type: String, required: true}],
 });
 
-const Article = mongoose.model("Article", articleSchema);
+const Lesson = mongoose.model("Lesson", lessonSchema);
 
-module.exports = Article;
+module.exports = Lesson;
