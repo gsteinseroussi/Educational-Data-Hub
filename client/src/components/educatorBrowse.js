@@ -5,7 +5,7 @@ import EducatorResults from "./educatorResults";
 
 const EducatorBrowse = () => {
   return (
-    <div className="card">
+    <div className="browse card">
       <div className="card-body">
         <div className="searchContainer">
           <h2>Browse Fields</h2>
