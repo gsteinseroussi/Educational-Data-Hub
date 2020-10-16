@@ -1,13 +1,23 @@
-.card-body {
-  color: black;
-}
-
-.card {
-  height: 50rem;
+.browse {
+  margin: 2rem;
+  flex: 100%;
 }
 
 .searchContainer {
   background-image: url("../images/chalkboard.jpeg");
   color: #a5a5a5;
-  padding: 2em;
+  padding: 2rem;
+  width: inherit;
+}
+
+.syllabus {
+  /* height: 65%; */
+  margin: 2rem;
+  width: fit-content;
+  align-content: center;
+}
+
+.review {
+  /* height: 35%; */
+  margin: 2rem;
 }
