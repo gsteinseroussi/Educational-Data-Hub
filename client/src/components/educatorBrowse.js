@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import GradeSelector from "./gradeSelector";
 import { List, ListItem } from "./educatorResults";
-import API from "../utils/articleAPI";
+import API from "../utils/lessonAPI";
 // import SubjectSelector from "./subjectSelector";
 
 const EducatorBrowse = () => {
   const [gradeChoices, setGradeChoices] = useState({"k-5": false, "6-8": false, "9-12": false})
-  const foundArticles = []
+  const foundLessons = []
 
   const handleGradeChange = (event)=>{
     setGradeChoices({...gradeChoices, [event.target.name]: event.target.checked})
@@ -19,11 +19,11 @@ const EducatorBrowse = () => {
     //   }
     // }).filter(grade => grade);
     // console.log(gradeLevels);
-    API.getArticleByGrade(gradeChoices)
+    API.getLessonByGrade(gradeChoices)
     .then((results)=>{  
       console.log("results", results)
-      foundArticles.push(results.data[0]);
-      console.log("foundArticles", foundArticles);
+      foundLessons.push(results.data[0]);
+      console.log("foundLessons", foundLessons);
     })
     
   }
@@ -39,11 +39,11 @@ const EducatorBrowse = () => {
             <input type="submit" value="Submit" onClick={search} ></input>
           </form>
           <div className="p-4 educatorResults">
-            {foundArticles.length ? (
+            {foundLessons.length ? (
               <List>
-                {foundArticles.map(article => (
-                  <ListItem key={article._id}>
-                    {article.articleName}
+                {foundLessons.map(lesson => (
+                  <ListItem key={lesson._id}>
+                    {lesson.lessonName}
                   </ListItem>
                 ))}
               </List>
