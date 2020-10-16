@@ -53,6 +53,15 @@ module.exports = {
       res.json(dbModel).catch((err) => res.status(422).json(err))
     );
   },
+
+  updateComment: function (req, res) {
+    db.Article.findOneAndUpdate(
+      { _id: req.params.id },
+      { $push: { commentArray: req.body.comment}}
+    ).then((dbModel) =>
+      res.json(dbModel).catch((err) => res.status(422).json(err))
+    );
+  },
   
   remove: function (req, res) {
     db.Article.findById({ _id: req.params.id })

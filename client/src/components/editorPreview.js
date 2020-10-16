@@ -24,19 +24,14 @@ const EditorPreview = () => {
 
 
 
-
+// display the html 
     return (
         <div className="card">
       <div className="card-body">
         <div className="searchContainer">
     <h2>Article to Adapt:</h2>
-    
-    
     <p>{article?.articleName}</p>
-    <p>{article?.researcherDocLink}</p>
-        
-
-    
+    <p>{article?.researchDocLink}</p>
         </div>
       </div>
     </div>

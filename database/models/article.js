@@ -9,6 +9,7 @@ const articleSchema = new Schema({
   subject: { type: String, default: "" },
   authorName: { type: String, default: "" },
   articleAbstract: { type: String, default: "" },
+  commentArray: [{ type: String, required: true}],
 });
 
 const Article = mongoose.model("Article", articleSchema);
