@@ -16,14 +16,15 @@ const EditorPreview = () => {
         API.getAssignedArticle()
         .then(res=>
            { 
-               console.log(res);
-               setArticle(res.data[0])})
+               console.log("res", res);
+               setArticle(res.data[0]);
+            console.log("article:", article)})
             .catch(err=> console.log(err))
     }
 
 
 
-
+// display the html 
     return (
         <div className="card">
       <div className="card-body">
