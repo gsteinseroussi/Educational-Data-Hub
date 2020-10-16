@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import LessonPlan from './LessonPlan'
 import axios from 'axios'
-import API from '../utils/API'
+import API from '../utils/articleAPI'
 
 
 // component to disolay educator results

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import API from "../utils/articleAPI";
+import API from "../utils/lessonAPI";
 
-function Researcher() {
+function EditorUpload() {
   // set component's initial state
   const [formObject, setFormObject] = useState({});
 
@@ -11,20 +11,20 @@ function Researcher() {
     setFormObject({ ...formObject, [name]: value });
   }
 
-  //handle form submit uses API.saveArticle method to save data
+  //handle form submit uses API.saveLesson method to save data
   function handleFormSubmit(event) {
     event.preventDefault();
     if (
       formObject.researchDocLink &&
-      formObject.articleName &&
+      formObject.lessonName &&
       formObject.authorName &&
-      formObject.articleAbstract
+      formObject.lessonAbstract
     ) {
-      API.saveArticle({
+      API.saveLesson({
         researchDocLink: formObject.researchDocLink,
-        articleName: formObject.articleName,
+        lessonName: formObject.lessonName,
         authorName: formObject.authorName,
-        articleAbstract: formObject.articleAbstract
+        lessonAbstract: formObject.lessonAbstract
       })
         .then(console.log(formObject))
         .catch((err) => console.log(err));
@@ -36,7 +36,7 @@ function Researcher() {
         <div className="col">
           <div className="jumbotron">
             <div className="container">
-              <h2>Directions for Researchers</h2>
+              <h2>Directions for Editors</h2>
               <p> Explanations about what to enter</p>
               <p> Directions for permissions on Google Doc Submission</p>
             </div>
@@ -49,8 +49,8 @@ function Researcher() {
               <input
                 className="form-control"
                 onChange={handleInputChange}
-                name="articleName"
-                placeholder="Article Name (required)"
+                name="lessonName"
+                placeholder="Lesson Plan Name (required)"
               ></input>
             </div>
             <div className="form-group">
@@ -73,7 +73,7 @@ function Researcher() {
               <textarea
                 className="form-control mb-4"
                 onChange={handleInputChange}
-                name="articleAbstract"
+                name="lessonAbstract"
                 rows="6"
                 placeholder="Abstract (required)"
               ></textarea>
@@ -92,4 +92,4 @@ function Researcher() {
   );
 }
 
-export default Researcher;
+export default EditorUpload;

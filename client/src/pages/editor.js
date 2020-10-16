@@ -1,5 +1,6 @@
 import React from "react";
 import EditorPreview from "../components/editorPreview";
+import EditorUpload from "../components/editorUpload";
 
 const Editor = (props) => {
   return(
@@ -11,8 +12,8 @@ const Editor = (props) => {
     <EditorPreview />
     </div>
     <div className="col-md-6">
-    
-    </div>
+      <EditorUpload/>
+      </div>
       </div>
     </div>
     </div>)
