@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import GradeSelector from "./gradeSelector";
 import { List, ListItem } from "./educatorResults";
-import API from "../utils/API";
+import API from "../utils/articleAPI";
 // import SubjectSelector from "./subjectSelector";
 
 const EducatorBrowse = () => {
