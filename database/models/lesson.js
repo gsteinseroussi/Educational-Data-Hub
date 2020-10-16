@@ -9,7 +9,7 @@ const lessonSchema = new Schema({
   subject: { type: String, default: "" },
   authorName: { type: String, default: "" },
   lessonAbstract: { type: String, default: "" },
-  commentArray: [{ type: String, required: true}],
+  commentArray: [{ type: Schema.Types.ObjectId, ref: "Comments", }],
 });
 
 const Lesson = mongoose.model("Lesson", lessonSchema);
