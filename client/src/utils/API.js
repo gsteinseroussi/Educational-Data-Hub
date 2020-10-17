@@ -24,7 +24,7 @@ return axios.get("/api/articles",
 
 //allows for search by grade level
 getArticleByGrade: function(gradeChoices){
-    return axios.get("/api/articles", { params: gradeChoices })
+    return axios.get("/api/articles/gradelevel", { params: gradeChoices })
 },
 
 //allows for editor to add information to the article object

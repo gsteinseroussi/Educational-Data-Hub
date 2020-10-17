@@ -8,6 +8,10 @@ router
   .get(articlesController.findAll)
   .post(articlesController.create);
 
+  router
+  .route("/gradelevel")
+  .get(articlesController.findByGradeLevel);
+
 //Matches with "/api/articles/:id"
 router
   .route("/:id")
