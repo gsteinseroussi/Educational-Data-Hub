@@ -1,10 +1,10 @@
 import React from "react";
-import "../allThe.css";
+import "./allThe.css";
 
 const Home = () => (
   <div className="Home">
     <div className="jumbotron">
-      <h1 className="display-4">Welcome to EDS!</h1>
+      <h1 className="display-4">Welcome to Educational Data Stream!</h1>
       <p className="lead">
         Log in to access your account, or read on to learn more about
         Educational Data Stream.
@@ -12,7 +12,7 @@ const Home = () => (
       <h2>What is EDS?</h2>
       <p>
         EDS connects research with implementation by connecting researchers with
-        educational professions who can turn their data into learning modules
+        educational professionals who can turn their data into learning modules
         ready for the classroom.
       </p>
       <h2>Who is EDS for?</h2>
