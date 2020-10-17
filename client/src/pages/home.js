@@ -1,10 +1,12 @@
 import React from "react";
-import "./allThe.css";
+import "./home.css";
 
 const Home = () => (
   <div className="Home">
     <div className="jumbotron">
       <h1 className="display-4">Welcome to Educational Data Stream!</h1>
+    </div>
+    <div className="container-fluid">
       <p className="lead">
         Log in to access your account, or read on to learn more about
         Educational Data Stream.

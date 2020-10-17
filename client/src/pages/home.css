@@ -1,0 +1,14 @@
+.Home {
+  background-color: #a5a5a5;
+}
+
+.jumbotron {
+  background-image: url("../images/chalkboard.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #a5a5a5;
+}
+
+.container-fluid {
+  padding-bottom: 2em;
+}
