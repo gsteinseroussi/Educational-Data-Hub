@@ -18,7 +18,7 @@ saveArticle: function(articleData){
 
 getAssignedArticle: function(){
 return axios.get("/api/articles", 
- { params: { editorDocLink: "" } }
+ { params: { claimed: false } }
 )
 },
 
@@ -28,14 +28,21 @@ getArticleByGrade: function(gradeChoices){
 },
 
 //allows for editor to add information to the article object
-editArticle: function(link, name, grade, subj, author, abstract){
+editArticle: function(link, name, grade, subj, author, abstract, claimed){
     return axios.put("/api/articles", {
         editorDocLink: link,
         articleName: name,
         gradeLevel: grade,
         subject: subj,
         authorName: author,
-        articleAbstract: abstract
+        articleAbstract: abstract,
+        claimed: claimed
+    })
+},
+
+claimArticle: function(claimedStatus){
+    return axios.put("/api/articles/:id", {
+        claimed: claimedStatus
     })
 }
 
