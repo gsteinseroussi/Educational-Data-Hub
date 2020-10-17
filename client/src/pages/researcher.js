@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import MyDropzone from "../components/dragAndDrop";
 import API from "../utils/API";
 
 function Researcher() {
@@ -37,8 +38,7 @@ function Researcher() {
           <div className="jumbotron">
             <div className="container">
               <h2>Directions for Researchers</h2>
-              <p> Explanations about what to enter</p>
-              <p> Directions for permissions on Google Doc Submission</p>
+              <MyDropzone />
             </div>
           </div>
         </div>
