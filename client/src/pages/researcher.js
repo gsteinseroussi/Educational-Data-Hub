@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 import MyDropzone from "../components/dragAndDrop";
+
 import API from "../utils/articleAPI";
+
 
 function Researcher() {
   // set component's initial state
@@ -22,12 +24,13 @@ function Researcher() {
       formObject.authorName &&
       formObject.articleAbstract
     ) {
-      API.saveArticle({
-        researchDocLink: formObject.researchDocLink,
-        articleName: formObject.articleName,
-        authorName: formObject.authorName,
-        articleAbstract: formObject.articleAbstract
-      })
+      articleAPI
+        .saveArticle({
+          researchDocLink: formObject.researchDocLink,
+          articleName: formObject.articleName,
+          authorName: formObject.authorName,
+          articleAbstract: formObject.articleAbstract,
+        })
         .then(console.log(formObject))
         .catch((err) => console.log(err));
     }

@@ -1,13 +1,14 @@
-import axios from 'axios';
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import axios from "axios";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import "./login.css";
 
 const SignUp = () => {
   const history = useHistory();
 
   const [signUpCreds, setSignUpCreds] = useState({
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   });
 
   const handleChange = (event) => {
@@ -20,15 +21,15 @@ const SignUp = () => {
     event.preventDefault();
 
     axios
-      .post('/api/users', {
+      .post("/api/users", {
         username: signUpCreds.username,
         password: signUpCreds.password,
       })
       .then((response) => {
         if (!response.data.errmsg) {
-          history.replace('/login');
+          history.replace("/login");
         } else {
-          console.log('USERNAME TAKEN');
+          console.log("USERNAME TAKEN");
         }
       })
       .catch((error) => {
@@ -37,55 +38,59 @@ const SignUp = () => {
   };
 
   return (
-    <div className="SignupForm">
-      <h4>Sign up</h4>
-      <form className="form-horizontal">
-        <div className="form-group">
-          <div className="col-1 col-ml-auto">
-            <label className="form-label" htmlFor="username">
-              Username:
-            </label>
+    <div className="loginPage">
+      <div className="jumbotron">
+        <h2 className="display-4">Create your EDS account</h2>
+      </div>
+      <div className="container-fluid">
+        <form className="form-horizontal">
+          <div className="form-group">
+            <div className="col-1 col-ml-auto">
+              <label className="form-label" htmlFor="username">
+                Username:
+              </label>
+            </div>
+            <div className="col-3 col-mr-auto">
+              <input
+                className="form-input"
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Username"
+                value={signUpCreds.username}
+                onChange={handleChange}
+              />
+            </div>
           </div>
-          <div className="col-3 col-mr-auto">
-            <input
-              className="form-input"
-              type="text"
-              id="username"
-              name="username"
-              placeholder="Username"
-              value={signUpCreds.username}
-              onChange={handleChange}
-            />
+          <div className="form-group">
+            <div className="col-1 col-ml-auto">
+              <label className="form-label" htmlFor="password">
+                Password:
+              </label>
+            </div>
+            <div className="col-3 col-mr-auto">
+              <input
+                className="form-input"
+                placeholder="password"
+                type="password"
+                name="password"
+                value={signUpCreds.password}
+                onChange={handleChange}
+              />
+            </div>
           </div>
-        </div>
-        <div className="form-group">
-          <div className="col-1 col-ml-auto">
-            <label className="form-label" htmlFor="password">
-              Password:
-            </label>
+          <div className="form-group ">
+            <div className="col-7"></div>
+            <button
+              className="btn btn-primary col-1 col-mr-auto"
+              onClick={handleSubmit}
+              type="submit"
+            >
+              Sign up
+            </button>
           </div>
-          <div className="col-3 col-mr-auto">
-            <input
-              className="form-input"
-              placeholder="password"
-              type="password"
-              name="password"
-              value={signUpCreds.password}
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-        <div className="form-group ">
-          <div className="col-7"></div>
-          <button
-            className="btn btn-primary col-1 col-mr-auto"
-            onClick={handleSubmit}
-            type="submit"
-          >
-            Sign up
-          </button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 };
