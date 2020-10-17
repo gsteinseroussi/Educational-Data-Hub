@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import MyDropzone from "../components/dragAndDrop";
-import API from "../utils/API";
-
+import API from "../utils/articleAPI";
 
 function Researcher() {
   // set component's initial state
