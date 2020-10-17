@@ -18,7 +18,7 @@ const Educator = (props) => {
           <div className="container">
             <div className="col-s-8">
               <SyllabusPrev />
-              <Reviews />
+              <Reviews lessonID="1" />
             </div>
           </div>
         </div>

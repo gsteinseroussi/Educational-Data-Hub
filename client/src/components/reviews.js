@@ -1,6 +1,7 @@
 import React from "react";
+import Comments from './comments'
 
-const Reviews = () => {
+const Reviews = (props) => {
   return (
     <div className="review card">
       <div className="card-body">
@@ -9,6 +10,7 @@ const Reviews = () => {
           <h2 className="card-title">Learning Module Reviews</h2>
           <h3>*STAR RATING SYSTEM HERE*</h3>
           <h5>Review Title</h5>
+          <Comments lessonID={props.lessonID}/>
           <p>
             This module offered great rationale for teaching thermodynamics to
             elemenatary students, and offered tools that they can all find at

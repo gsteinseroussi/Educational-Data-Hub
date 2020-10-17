@@ -4,7 +4,7 @@ import axios from 'axios'
 import API from '../utils/articleAPI'
 
 
-// component to disolay educator results
+// component to display educator results
 const EducatorResults = () => {
   // setting state for lesson plan, which is what the editor uploads to the database
   const [ lessonPlan, setLessonPlan ] = useState([])
@@ -26,8 +26,6 @@ const EducatorResults = () => {
       </div>
   );
 }
-
-
 
 export default EducatorResults;
 

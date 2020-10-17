@@ -50,6 +50,7 @@ const App = () => {
           <Route exact path="/researcher" component={Researcher} />
           <Route exact path="/editor" component={Editor} />
           <Route exact path="/educator" component={Educator} />
+          <Route exact path="/lessons/:id" component={Educator}/>
           <Redirect to="/login" />
         </Switch>
       )}
