@@ -1,23 +1,30 @@
-.browse {
-  margin: 2rem;
-  flex: 100%;
+.educatorPage {
+  background-color: #a5a5a5;
 }
 
 .searchContainer {
   background-image: url("../images/chalkboard.jpeg");
   color: #a5a5a5;
   padding: 2rem;
-  width: inherit;
+  margin: 2px;
+  width: fit-content;
+}
+
+.browse {
+  margin: 2rem;
+  flex: 100%;
+  width: fit-content;
+  background-color: #6a5445;
 }
 
 .syllabus {
-  /* height: 65%; */
   margin: 2rem;
   width: fit-content;
-  align-content: center;
+  background-color: #6a5445;
 }
 
 .review {
-  /* height: 35%; */
   margin: 2rem;
+  width: fit-content;
+  background-color: #6a5445;
 }
