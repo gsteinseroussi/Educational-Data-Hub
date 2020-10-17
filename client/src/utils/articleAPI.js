@@ -17,12 +17,14 @@ saveArticle: function(articleData){
 },
 
 getAssignedArticle: function(){
-return axios.get("/api/articles", { params: { editorDocLink: "" } })
+return axios.get("/api/articles", 
+ { params: { editorDocLink: "" } }
+)
 },
 
 //allows for search by grade level
-getArticleByGrade: function(grade){
-    return axios.get("/api/articles", { params: { gradeLevel: grade } })
+getArticleByGrade: function(gradeChoices){
+    return axios.get("/api/articles", { params: gradeChoices })
 },
 
 //allows for editor to add information to the article object

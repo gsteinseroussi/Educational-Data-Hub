@@ -1,10 +1,10 @@
 const db = require("../database/models");
 const url = require("url")
-//defining methods for articlesController
+//defining methods for controllersController
 module.exports = {
   findAll: function (req, res) {
   
-    db.Article.find({})
+    db.Lesson.find({})
       .sort({ date: -1 })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
@@ -27,26 +27,26 @@ module.exports = {
     // Need to create in API route for getting by grade levels
     // Use this controller methode
     // Update line 30 to find by items within the array
-    db.Article.find({ gradeLevel: { $contains: gradeLevels} })
+    db.Lesson.find({ gradeLevel: { $in: gradeLevels} })
       .sort({ date: -1 })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
 
   findById: function (req, res) {
-    db.Article.findById(req.params.id)
+    db.Lesson.findById(req.params.id)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
 
   create: function (req, res) {
-    db.Article.create(req.body)
+    db.Lesson.create(req.body)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
 
   update: function (req, res) {
-    db.Article.findOneAndUpdate(
+    db.Lesson.findOneAndUpdate(
       { _id: req.params.id },
       req.body
     ).then((dbModel) =>
@@ -55,7 +55,7 @@ module.exports = {
   },
 
   updateComment: function (req, res) {
-    db.Article.findOneAndUpdate(
+    db.Lesson.findOneAndUpdate(
       { _id: req.params.id },
       { $push: { commentArray: req.body.comment}}
     ).then((dbModel) =>
@@ -64,7 +64,7 @@ module.exports = {
   },
   
   remove: function (req, res) {
-    db.Article.findById({ _id: req.params.id })
+    db.Lesson.findById({ _id: req.params.id })
       .then((dbModel) => dbModel.remove())
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));

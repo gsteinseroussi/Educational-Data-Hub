@@ -1,13 +1,30 @@
-.card-body {
-  color: black;
-}
-
-.card {
-  height: 50rem;
+.educatorPage {
+  background-color: #a5a5a5;
 }
 
 .searchContainer {
   background-image: url("../images/chalkboard.jpeg");
   color: #a5a5a5;
-  padding: 2em;
+  padding: 2rem;
+  margin: 2px;
+  width: fit-content;
+}
+
+.browse {
+  margin: 2rem;
+  flex: 100%;
+  width: fit-content;
+  background-color: #6a5445;
+}
+
+.syllabus {
+  margin: 2rem;
+  width: fit-content;
+  background-color: #6a5445;
+}
+
+.review {
+  margin: 2rem;
+  width: fit-content;
+  background-color: #6a5445;
 }
