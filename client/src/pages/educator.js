@@ -11,15 +11,19 @@ const Educator = (props) => {
         <h2 className="display-4">
           Browse our content to find the right resources for your classroom
         </h2>
+      </div>
+      <div className="container-fluid">
         <div className="row">
-          <div className="col-s-4">
+          <div className="col-md-4">
             <EducatorBrowse />
           </div>
+
           <div className="container">
             <div className="col-s-8">
               <SyllabusPrev />
               <Reviews lessonID="1" />
             </div>
+
           </div>
         </div>
       </div>

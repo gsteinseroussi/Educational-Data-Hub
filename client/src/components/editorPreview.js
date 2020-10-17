@@ -18,11 +18,12 @@ const EditorPreview = () => {
            { 
                console.log("res", res);
                setArticle(res.data[0]);
-            console.log("article:", article)})
+               
+        })
             .catch(err=> console.log(err))
     }
 
-
+   
 
 // display the html 
     return (
@@ -30,8 +31,9 @@ const EditorPreview = () => {
       <div className="card-body">
         <div className="searchContainer">
     <h2>Article to Adapt:</h2>
-    <p>{article?.articleName}</p>
-    <p>{article?.researchDocLink}</p>
+    <h3>Title: {article?.articleName}</h3>
+    <p>Link: {article?.researchDocLink}</p>
+    <p>Description: {article?.articleAbstract}</p>
         </div>
       </div>
     </div>

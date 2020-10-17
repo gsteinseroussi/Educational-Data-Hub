@@ -9,6 +9,7 @@ const articleSchema = new Schema({
   subject: { type: String, default: "" },
   authorName: { type: String, default: "" },
   articleAbstract: { type: String, default: "" },
+  claimed: { type: Boolean, default: false}
 });
 
 const Article = mongoose.model("Article", articleSchema);

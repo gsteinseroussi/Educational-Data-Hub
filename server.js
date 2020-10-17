@@ -1,11 +1,13 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
-const passport = require('passport');
+const express = require("express");
+const mongoose = require("mongoose");
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
+const passport = require("passport");
+const cors = require("cors");
+require("./database");
 
-const mongooseConnection = require('./database');
-const routes = require('./routes');
+const mongooseConnection = require("./database");
+const routes = require("./routes");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -14,20 +16,23 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+//cors for fileupload
+app.use(cors());
+
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
 }
 
 // Sessions
 app.use(
   session({
-    secret: 'RANDOM STRING',
+    secret: "RANDOM STRING",
     store: new MongoStore({
-      mongooseConnection,
+      mongooseConnection
     }),
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: false
   })
 );
 

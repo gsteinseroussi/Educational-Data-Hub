@@ -1,4 +1,5 @@
 
+const fileRoutes = require("./file");
 const router = require('express').Router();
 const userRoutes = require('./users');
 const articleRoutes = require('./articles')
@@ -9,6 +10,7 @@ router.use('/users', userRoutes);
 router.use('/articles', articleRoutes);
 router.use('/lessons', lessonRoutes);
 router.use('/comments', commentRoutes)
+router.use("/upload", fileRoutes);
 
 
 module.exports = router;

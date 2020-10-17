@@ -10,7 +10,7 @@ const EducatorResults = () => {
   const [ lessonPlan, setLessonPlan ] = useState([])
 // retrieving lesson plan from database
   useEffect(() => {
-    axios.get('/api/lessonplan').then(response => {
+    axios.get('/api/lessons').then(response => {
       console.log(response.data)
       // setting new state for lesson plan based on query
       setLessonPlan(response.data)

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect } from "react";
+import { useDropzone } from "react-dropzone";
 import "bootstrap/dist/css/bootstrap.css";
 import { Redirect, Route, Switch, useHistory } from "react-router-dom";
 import Navbar from "./components/navbar";
@@ -40,7 +41,6 @@ const App = () => {
           <Route exact path="/researcher" component={Researcher} />
           <Route exact path="/educator" component={Educator} />
           <Route exact path="/editor" component={Editor} />
-
         </Switch>
       ) : (
         <Switch>
