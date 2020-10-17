@@ -17,9 +17,13 @@ const Educator = (props) => {
           <div className="col-md-4">
             <EducatorBrowse />
           </div>
-          <div className="col-md-8">
-            <SyllabusPrev />
-            <Reviews />
+
+          <div className="container">
+            <div className="col-s-8">
+              <SyllabusPrev />
+              <Reviews lessonID="1" />
+            </div>
+
           </div>
         </div>
       </div>
