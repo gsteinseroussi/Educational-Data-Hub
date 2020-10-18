@@ -1,0 +1,14 @@
+.editorPage {
+  background-color: #c9c9c9;
+}
+
+.jumbotron {
+  background-image: url("../images/chalkboard.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #c9c9c9;
+}
+
+.container-fluid {
+  padding-bottom: 2em;
+}
