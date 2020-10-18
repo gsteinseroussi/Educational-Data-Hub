@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import EducatorBrowse from "../components/educatorBrowse";
 import SyllabusPrev from "../components/syllabusPrev";
 import Reviews from "../components/reviews";
 import "./educator.css";
 
+
 const Educator = (props) => {
+
+  const [selectedLesson, setSelectedLesson] = useState({});
+const viewDetails = () => {
+console.log("Button clicked");
+
+//now needs to retrieve the specific object and render to SyllabusPrev
+
+
+}
+
   return (
     <div className="educatorPage">
       <div className="jumbotron">
@@ -15,7 +26,7 @@ const Educator = (props) => {
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-4">
-            <EducatorBrowse />
+            <EducatorBrowse viewDetails={viewDetails}/>
           </div>
 
           <div className="container">

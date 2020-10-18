@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import GradeSelector from "./gradeSelector";
 import { List, ListItem } from "./educatorResults";
 import API from "../utils/lessonAPI";
 import { Link } from "react-router-dom";
 // import SubjectSelector from "./subjectSelector";
 
-const EducatorBrowse = () => {
+const EducatorBrowse = (props) => {
   const [gradeChoices, setGradeChoices] = useState({"k-5": false, "6-8": false, "9-12": false})
   const foundLessons = []
   const [lessons, setLessons] = useState([])
+
+  useEffect(() => {
+    console.log('Value of lessons in state', lessons);
+ }, [lessons]);
 
   const handleGradeChange = (event)=>{
     setGradeChoices({...gradeChoices, [event.target.name]: event.target.checked})
@@ -21,11 +25,12 @@ const EducatorBrowse = () => {
       console.log("results", results)
       foundLessons.push(results.data[0]);
       console.log(foundLessons)
-      setLessons(...foundLessons)
+      setLessons([...foundLessons])
       // console.log(lessons)
     })
     
   }
+
   
   return (
     <div className="browse card">
@@ -51,7 +56,12 @@ const EducatorBrowse = () => {
               // </List>
               <ul>
                 {lessons.map(lesson => (
-                  <li>{lesson.lessonName}</li>
+                  <li key={lesson._id}>
+                   <h3>{lesson.lessonName}</h3>
+                    {lesson.lessonAbstract}
+                    <br></br>
+                    <button onClick={props.viewDetails()} >View Details</button>
+                    </li>
                 ))}
               </ul>
             
