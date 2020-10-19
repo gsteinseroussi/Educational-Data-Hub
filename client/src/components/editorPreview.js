@@ -9,6 +9,7 @@ const EditorPreview = () => {
     //loads article to edit into the assigned area
     useEffect(()=>{
         loadArticle()
+        
     }, [])
 
     //finds the article selected to edit and sets it to article
@@ -18,11 +19,15 @@ const EditorPreview = () => {
            { 
                console.log("res", res);
                setArticle(res.data[0]);
-               
+               claimArticle();
         })
             .catch(err=> console.log(err))
-    }
+    };
 
+        function claimArticle (article){
+            console.log(article)
+            API.claimArticle(article._id)
+        };
    
 
 // display the html 

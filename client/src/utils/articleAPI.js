@@ -40,9 +40,9 @@ editArticle: function(link, name, grade, subj, author, abstract, claimed){
     })
 },
 
-claimArticle: function(claimedStatus){
-    return axios.put("/api/articles/:id", {
-        claimed: claimedStatus
+claimArticle: function(id){
+    return axios.put("/api/articles/" + id , {
+        claimed: true
     })
 }
 
