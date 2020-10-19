@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import MyDropzone from "../components/dragAndDrop";
 
-import articleAPI from "../utils/articleAPI";
+import API from "../utils/articleAPI";
 
 
 function Researcher() {
