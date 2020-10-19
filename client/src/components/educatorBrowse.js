@@ -21,7 +21,7 @@ const EducatorBrowse = () => {
       console.log("results", results)
       foundLessons.push(results.data[0]);
       console.log(foundLessons)
-      setLessons(...foundLessons)
+      setLessons(results.data)
       // console.log(lessons)
     })
     

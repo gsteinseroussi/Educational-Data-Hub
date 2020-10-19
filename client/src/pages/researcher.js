@@ -24,7 +24,7 @@ function Researcher() {
       formObject.authorName &&
       formObject.articleAbstract
     ) {
-      articleAPI
+      API
         .saveArticle({
           researchDocLink: formObject.researchDocLink,
           articleName: formObject.articleName,
