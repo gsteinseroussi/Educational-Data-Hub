@@ -25,7 +25,9 @@ const EducatorBrowse = (props) => {
       console.log("results", results)
       foundLessons.push(results.data[0]);
       console.log(foundLessons)
-      setLessons([...foundLessons])
+
+      setLessons(results.data)
+
       // console.log(lessons)
     })
     
@@ -60,7 +62,7 @@ const EducatorBrowse = (props) => {
                    <h3>{lesson.lessonName}</h3>
                     {lesson.lessonAbstract}
                     <br></br>
-                    <button onClick={props.viewDetails()} >View Details</button>
+                    <button onClick={() => props.setSelectedLesson(lesson)} >View Details</button>
                     </li>
                 ))}
               </ul>

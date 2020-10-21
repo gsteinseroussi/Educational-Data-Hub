@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/lessonAPI";
+import GradeSelector from "./gradeSelector"
 
 function EditorUpload() {
   // set component's initial state
   const [formObject, setFormObject] = useState({});
+  const [gradeChoices, setGradeChoices] = useState({"k-5": false, "6-8": false, "9-12": false})
+
+  const handleGradeChange = (event)=>{
+    setGradeChoices({...gradeChoices, [event.target.name]: event.target.checked})
+  }
 
   //update component state when the user types into input field
   function handleInputChange(event) {
@@ -14,17 +20,26 @@ function EditorUpload() {
   //handle form submit uses API.saveLesson method to save data
   function handleFormSubmit(event) {
     event.preventDefault();
+    // if either of the respective boxes is checked, add selection to array to add to database
+    let gradeLevel=[]
+    if (gradeChoices["k-5"]) gradeLevel.push("k-5")
+    if (gradeChoices["6-8"]) gradeLevel.push("6-8")
+    if (gradeChoices["9-12"]) gradeLevel.push("9-12")
+
+    // checking to make sure that all the input boxes are selected
     if (
       formObject.researchDocLink &&
       formObject.lessonName &&
       formObject.authorName &&
-      formObject.lessonAbstract
+      formObject.lessonAbstract &&
+      gradeLevel.length
     ) {
       API.saveLesson({
         researchDocLink: formObject.researchDocLink,
         lessonName: formObject.lessonName,
         authorName: formObject.authorName,
-        lessonAbstract: formObject.lessonAbstract
+        lessonAbstract: formObject.lessonAbstract,
+        gradeLevel
       })
         .then(console.log(formObject))
         .catch((err) => console.log(err));
@@ -69,6 +84,7 @@ function EditorUpload() {
                 placeholder="Google Docs Link (required)"
               ></input>
             </div>
+            <GradeSelector gradeChoices={gradeChoices} onChange={handleGradeChange}/>
             <div className="form-group">
               <textarea
                 className="form-control mb-4"

@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 
 import MyDropzone from "../components/dragAndDrop";
 
-import articleAPI from "../utils/articleAPI";
+
+import API from "../utils/articleAPI";
 import FilesList from "../components/filesList"
+
 
 
 function Researcher() {
@@ -25,7 +27,7 @@ function Researcher() {
       formObject.authorName &&
       formObject.articleAbstract
     ) {
-      articleAPI
+      API
         .saveArticle({
           researchDocLink: formObject.researchDocLink,
           articleName: formObject.articleName,
