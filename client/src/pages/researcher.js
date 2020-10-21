@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 
 import MyDropzone from "../components/dragAndDrop";
 
+
 import API from "../utils/articleAPI";
+import FilesList from "../components/filesList"
+
 
 
 function Researcher() {
@@ -89,6 +92,13 @@ function Researcher() {
             >
               Submit
             </button>
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <div className="jumbotron">
+            <FilesList />
           </div>
         </div>
       </div>

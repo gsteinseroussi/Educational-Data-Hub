@@ -10,7 +10,7 @@ router.use('/users', userRoutes);
 router.use('/articles', articleRoutes);
 router.use('/lessons', lessonRoutes);
 router.use('/comments', commentRoutes)
-router.use("/upload", fileRoutes);
+router.use("/files", fileRoutes);
 
 
 module.exports = router;
