@@ -15,12 +15,14 @@ console.log("Button clicked", id);
 // console.log(id)
 
 //now needs to retrieve the specific object and render to SyllabusPrev
-// lessonAPI.getLessonByID(id)
-// .then((result)=>{
+lessonAPI.getLessonByID(id)
+.then((result)=>{
   
-//   console.log(result)
+  console.log(result.data)
+  setSelectedLesson(result.data)
+  console.log(selectedLesson);
   
-// })
+})
 
 }
 
@@ -34,11 +36,11 @@ console.log("Button clicked", id);
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-4">
-            <EducatorBrowse setSelectedLesson={setSelectedLesson}/>
+            <EducatorBrowse setSelectedLesson={setSelectedLesson} viewDetails={viewDetails}/>
           </div>
 
           <div className="container">
-            <div className="col-s-8">
+            <div className="col-sm-8">
               <SyllabusPrev selectedLesson={selectedLesson} />
               <Reviews lessonID={selectedLesson._id} />
             </div>
