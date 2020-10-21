@@ -8,7 +8,8 @@ mongoose
   .connect(process.env.MONGO_URI || "mongodb://localhost/tempDB", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true
+    useCreateIndex: true,
+    useFindandModify: false
   })
   .then(
     () => {
