@@ -34,13 +34,13 @@ console.log("Button clicked", id);
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-4">
-            <EducatorBrowse viewDetails={viewDetails}/>
+            <EducatorBrowse setSelectedLesson={setSelectedLesson}/>
           </div>
 
           <div className="container">
             <div className="col-s-8">
-              <SyllabusPrev />
-              <Reviews lessonID="1" />
+              <SyllabusPrev selectedLesson={selectedLesson} />
+              <Reviews lessonID={selectedLesson._id} />
             </div>
 
           </div>

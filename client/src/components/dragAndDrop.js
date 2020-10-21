@@ -1,7 +1,7 @@
 import React, { useState, setState, useRef } from "react";
 import Dropzone from "react-dropzone";
 import axios from "axios";
-import { API_URL } from "../utils/constants";
+
 
 function MyDropzone(props) {
   const [file, setFile] = useState(null);
@@ -27,7 +27,17 @@ function MyDropzone(props) {
       console.log("file:", reader.result);
     };
     reader.readAsDataURL(uploadedFile);
+    dropRef.current.style.border = '2px dashed #FFFFFF';
   };
+
+  const updateBorder = (dragState) => {
+    if (dragState === 'over') {
+      dropRef.current.style.border = '2px solid #FFFFFF';
+    } else if (dragState === 'leave') {
+      dropRef.current.style.border = '2px dashed #FFFFFF'
+    }
+  };
+
   const handleOnSubmit = async (event) => {
     event.preventDefault();
 
@@ -42,7 +52,7 @@ function MyDropzone(props) {
           formData.append("description", description);
 
           setErrorMsg("");
-          await axios.post(`${API_URL}/api/upload`, formData, {
+          await axios.post(`/api/files/upload`, formData, {
             headers: {
               "Content-Type": "multipart/form-data"
             }
@@ -61,6 +71,7 @@ function MyDropzone(props) {
   return (
     <div className="container">
       <div className="form-group">
+      {errorMsg && <p className="errorMsg">{errorMsg}</p>}
         <input
           className="form-control"
           onChange={handleInputChange}
@@ -77,7 +88,7 @@ function MyDropzone(props) {
         ></input>
       </div>
       <div className="upload-section">
-        <Dropzone onDrop={onDrop}>
+        <Dropzone onDrop={onDrop} onDragEnter={() => updateBorder('over')} onDragLeave={() => updateBorder('leave')}>
           {({ getRootProps, getInputProps }) => (
             <div {...getRootProps({ className: "drop-zone" })} ref={dropRef}>
               <input {...getInputProps()} />

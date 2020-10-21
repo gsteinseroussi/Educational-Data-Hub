@@ -6,6 +6,6 @@ export default {
     },
 
     saveComments: function (comment, lessonID){
-        return axios.post("/api/comments/submit/"+lessonID, {comment})
+        return axios.post("/api/comments/submit/"+ lessonID, {comment})
     }
 }

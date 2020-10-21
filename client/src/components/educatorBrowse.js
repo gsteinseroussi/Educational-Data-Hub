@@ -56,7 +56,9 @@ const EducatorBrowse = (props) => {
                    <h3>{lesson.lessonName}</h3>
                     {lesson.lessonAbstract}
                     <br></br>
+
                     <button onClick={e => props.viewDetails(e.target.value)} value={lesson._id}>View Details</button>
+
                     </li>
                 ))}
               </ul>

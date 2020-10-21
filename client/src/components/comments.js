@@ -42,7 +42,7 @@ const Comments = (props) => {
            row='3'
            cols='50'
            value={input}
-           onChange={e=>setInput([e.target.value])}
+           onChange={e=>setInput(e.target.value)}
            />
         </label>
         <input
