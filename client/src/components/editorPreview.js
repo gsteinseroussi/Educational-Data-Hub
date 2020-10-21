@@ -1,3 +1,4 @@
+import { set } from "mongoose";
 import React, { useState, useEffect } from "react";
 import API from "../utils/articleAPI";
 
@@ -12,21 +13,38 @@ const EditorPreview = () => {
         
     }, [])
 
+    useEffect(() => {
+        console.log('Value of article in state', article);
+        if(!article){
+            return;
+        } else {
+        claimArticle(article._id);}
+     }, [article]);
+
     //finds the article selected to edit and sets it to article
     function loadArticle(){
         API.getAssignedArticle()
         .then(res=>
            { 
+               const newResArray = [];
                console.log("res", res);
-               setArticle(res.data[0]);
-               claimArticle();
+               res.data.map(article => {
+                   if (!article.claimed){
+                   newResArray.push(article);
+                }
+               })
+               console.log(newResArray);
+               setArticle(newResArray[0])
+            
         })
             .catch(err=> console.log(err))
     };
 
-        function claimArticle (article){
-            console.log(article)
-            API.claimArticle(article._id)
+        function claimArticle (id){
+    
+            API.claimArticle(id)
+            .then(res => res.json)
+            .catch(err => console.log(err))
         };
    
 
@@ -35,10 +53,15 @@ const EditorPreview = () => {
         <div className="card">
       <div className="card-body">
         <div className="searchContainer">
-    <h2>Article to Adapt:</h2>
-    <h3>Title: {article?.articleName}</h3>
-    <p>Link: {article?.researchDocLink}</p>
-    <p>Description: {article?.articleAbstract}</p>
+            {article ? (
+                <div><h2>Article to Adapt:</h2>
+                <h3>Title: {article.articleName}</h3>
+                <p>Link: {article.researchDocLink}</p>
+                <p>Description: {article.articleAbstract}</p></div>
+            ) : (
+                <h3>No Articles to Adapt</h3>
+            )}
+    
         </div>
       </div>
     </div>

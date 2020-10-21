@@ -1,4 +1,5 @@
 const express = require("express");
+const { claimArticle } = require("../../controllers/articlesController");
 const router = express.Router();
 const articlesController = require("../../controllers/articlesController");
 
@@ -12,7 +13,8 @@ router
 router
   .route("/:id")
   .get(articlesController.findById)
-  .put(articlesController.update)
+  // .put(articlesController.update)
+  .put(articlesController.claimArticle)
   .delete(articlesController.remove);
 
   router

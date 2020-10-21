@@ -68,5 +68,19 @@ module.exports = {
       .then((dbModel) => dbModel.remove())
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
+  },
+  
+  claimArticle: function(req, res){
+    console.log(req.body)
+    db.Article.findOneAndUpdate(
+      { _id: req.params.id },
+      { claimed: req.body.claimed}
+    ).then((dbModel) =>
+      {
+        console.log(dbModel)
+        res.json(dbModel)
+      }).catch((err) => res.status(422).json(err))
+    ;
   }
 };
+

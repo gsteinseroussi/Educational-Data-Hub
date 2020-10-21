@@ -3,16 +3,24 @@ import EducatorBrowse from "../components/educatorBrowse";
 import SyllabusPrev from "../components/syllabusPrev";
 import Reviews from "../components/reviews";
 import "./educator.css";
+import lessonAPI from "../utils/lessonAPI";
 
 
 const Educator = (props) => {
 
   const [selectedLesson, setSelectedLesson] = useState({});
-const viewDetails = () => {
-console.log("Button clicked");
+const viewDetails = (id) => {
+
+console.log("Button clicked", id);
+// console.log(id)
 
 //now needs to retrieve the specific object and render to SyllabusPrev
-
+// lessonAPI.getLessonByID(id)
+// .then((result)=>{
+  
+//   console.log(result)
+  
+// })
 
 }
 
