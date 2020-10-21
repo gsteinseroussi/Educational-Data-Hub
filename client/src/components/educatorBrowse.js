@@ -10,11 +10,13 @@ const EducatorBrowse = (props) => {
   const foundLessons = []
   const [lessons, setLessons] = useState([])
 
+
   useEffect(() => {
     console.log('Value of lessons in state', lessons);
  }, [lessons]);
 
   const handleGradeChange = (event)=>{
+    event.preventDefault();
     setGradeChoices({...gradeChoices, [event.target.name]: event.target.checked})
   }
   const search = function (event) {
@@ -26,12 +28,14 @@ const EducatorBrowse = (props) => {
       foundLessons.push(results.data[0]);
       console.log(foundLessons)
 
-      setLessons(results.data)
+      setLessons([...foundLessons])
 
       // console.log(lessons)
     })
     
   }
+
+  
 
   
   return (
@@ -46,23 +50,13 @@ const EducatorBrowse = (props) => {
           </form>
           <div className="p-4 educatorResults">
             {lessons.length > 0 ? (
-              // <List>
-              //   {foundLessons.map(lesson => (
-              //     <ListItem key={lesson._id}>
-              //       <Link to={"/lessons/" + lesson._id}>
-              //      <p> {lesson.lessonName}</p>
-              //       </Link>
-              //     </ListItem>
-                   
-              //   ))}
-              // </List>
               <ul>
                 {lessons.map(lesson => (
                   <li key={lesson._id}>
                    <h3>{lesson.lessonName}</h3>
                     {lesson.lessonAbstract}
                     <br></br>
-                    <button onClick={props.viewDetails()} >View Details</button>
+                    <button onClick={e => props.viewDetails(e.target.value)} value={lesson._id}>View Details</button>
                     </li>
                 ))}
               </ul>
