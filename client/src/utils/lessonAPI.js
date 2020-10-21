@@ -23,8 +23,8 @@ return axios.get("/api/lessons",
 },
 
 //allows for search by grade level
-getLessonByGrade: function(gradeChoices){
-    return axios.get("/api/lessons", { params: gradeChoices })
+getLessonByGrade: function(gradeLevel){
+    return axios.get("/api/lessons", { params: gradeLevel })
 },
 
 //allows for editor to add information to the article object
