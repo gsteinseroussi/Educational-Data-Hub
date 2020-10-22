@@ -14,26 +14,23 @@ const Lesson = require("../../database/models/lesson");
 // api route to create new comments
 router.post("/submit/:id", (req, res) => {
   console.log("USER", req.user);
-  Comments.create({ message: req.body.comment, userName: req.user.username })
-    .then(({ _id }) => {
-      console.log("req.params.id", req.params.id);
-      console.log("_id", _id);
+  Comments.create({
+    message: req.body.comment,
+    userName: req.user.username,
+  }).then(({ _id }) => {
+    console.log("req.params.id", req.params.id);
+    console.log("_id", _id);
 
-      return Lesson.findById(req.params.id);
-
-      return Lesson.findByIdAndUpdate(
-        req.params.id,
-        {
-          authorName: "einstein",
-          // $push: { commentArray: mongoose.Types.ObjectId(_id) },
-        },
-        { new: true }
-      );
-    })
-    .then((lesson) => {
+    Lesson.update(
+      { _id: req.params.id },
+      {
+        $push: { commentArray: _id },
+      },
+      { new: true }
+    ).then((lesson) => {
       console.log("lesson", lesson);
       res.json(lesson);
-    })
-    .catch((err) => console.log(err));
+    });
+  });
 });
 module.exports = router;

@@ -5,26 +5,20 @@ import Reviews from "../components/reviews";
 import "./educator.css";
 import lessonAPI from "../utils/lessonAPI";
 
-
 const Educator = (props) => {
-
   const [selectedLesson, setSelectedLesson] = useState({});
-const viewDetails = (id) => {
 
-console.log("Button clicked", id);
-// console.log(id)
+  const viewDetails = (id) => {
+    console.log("Button clicked", id);
+    // console.log(id)
 
-//now needs to retrieve the specific object and render to SyllabusPrev
-lessonAPI.getLessonByID(id)
-.then((result)=>{
-  
-  console.log(result.data)
-  setSelectedLesson(result.data)
-  console.log(selectedLesson);
-  
-})
-
-}
+    //now needs to retrieve the specific object and render to SyllabusPrev
+    lessonAPI.getLessonByID(id).then((result) => {
+      console.log(result.data);
+      setSelectedLesson(result.data);
+      console.log(selectedLesson);
+    });
+  };
 
   return (
     <div className="educatorPage">
@@ -36,15 +30,17 @@ lessonAPI.getLessonByID(id)
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-4">
-            <EducatorBrowse setSelectedLesson={setSelectedLesson} viewDetails={viewDetails}/>
+            <EducatorBrowse
+              setSelectedLesson={setSelectedLesson}
+              viewDetails={viewDetails}
+            />
           </div>
 
           <div className="container">
             <div className="col-sm-8">
               <SyllabusPrev selectedLesson={selectedLesson} />
-              <Reviews lessonID={selectedLesson._id} />
+              <Reviews lessonID={selectedLesson._id} lesson={selectedLesson} />
             </div>
-
           </div>
         </div>
       </div>

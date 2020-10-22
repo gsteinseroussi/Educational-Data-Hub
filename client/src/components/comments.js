@@ -9,32 +9,38 @@ const Comments = (props) => {
   const [input, setInput] = useState("");
 
   //retrieving comments from database
-  useEffect(() => {
-    //   make sure the comment is attached to the lessonID
-    API.getComments(props.lessonID).then((response) => {
-      console.log(response.data);
-      // setting new state for comments
-      setComments(response.data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   //   make sure the comment is attached to the lessonID
+  //   API.getComments(props.lessonID).then((response) => {
+  //     console.log(response.data);
+  //     // setting new state for comments
+  //     setComments(response.data);
+  //   });
+  // }, []);
 
   function handleCommentSubmit(event) {
     event.preventDefault();
     if (!input) return;
     console.log(props.lessonID);
-    API.saveComments(input, props.lessonID).then((response) =>
-      console.log(response)
-    );
+    API.saveComments(input, props.lessonID).then((response) => {
+      console.log(response);
+      setInput("");
+    });
   }
 
   // will display the comments
   return (
     <div>
       <ol>
-        {comments?.map((comment) => (
-          <li>{comment}</li>
+        {props.lesson.commentArray?.map((comment) => (
+          <li>
+            <p>{comment.message}</p>
+            <p>{comment.userName}</p>
+            <p>{comment.date}</p>
+          </li>
         ))}
       </ol>
+
       <form onSubmit={handleCommentSubmit}>
         <label>
           Add comment
