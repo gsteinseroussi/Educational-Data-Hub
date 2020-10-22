@@ -25,7 +25,7 @@ module.exports = {
     // Need to create in API route for getting by grade levels
     // Use this controller methode
     // Update line 30 to find by items within the array
-    db.Lesson.find({ gradeLevel: { $in: gradeLevels } })
+    db.Lesson.findAll({ gradeLevel: { $in: gradeLevels } })
       .sort({ date: -1 })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));

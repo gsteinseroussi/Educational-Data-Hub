@@ -6,7 +6,8 @@ const lessonsController = require("../../controllers/lessonsController");
 router
   .route("/")
   .get(lessonsController.findAll)
-  .post(lessonsController.create);
+  .get(lessonsController.findByGradeLevel)
+  .post(lessonsController.create)
 
 //Matches with "/api/lessons/:id"
 router
