@@ -1,5 +1,5 @@
 import React from "react";
-import Comments from './comments'
+import Comments from "./comments";
 
 const Reviews = (props) => {
   return (
@@ -10,12 +10,12 @@ const Reviews = (props) => {
           <h2 className="card-title">Learning Module Reviews</h2>
           <h3>*STAR RATING SYSTEM HERE*</h3>
           <h5>Review Title</h5>
-          <Comments lessonID={props.lessonID}/>
-          <p>
+          <Comments lessonID={props.lessonID} lesson={props.lesson} />
+          {/* <p>
             This module offered great rationale for teaching thermodynamics to
             elemenatary students, and offered tools that they can all find at
             home. The directions are clear. No injuries have been reported.
-          </p>
+          </p> */}
         </div>
       </div>
     </div>
