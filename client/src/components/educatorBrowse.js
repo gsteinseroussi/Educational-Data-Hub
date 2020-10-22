@@ -19,10 +19,11 @@ const EducatorBrowse = (props) => {
     event.preventDefault();
     setGradeChoices({...gradeChoices, [event.target.name]: event.target.checked})
   }
+
   const search = function (event) {
     event.preventDefault();
-    
-    API.getLessonByGrade(gradeChoices)
+    console.log(gradeChoices);
+    API.findByGradeLevel(gradeChoices)
     .then((results)=>{  
       console.log("results", results)
       foundLessons.push(results.data[0]);
@@ -30,7 +31,7 @@ const EducatorBrowse = (props) => {
 
       setLessons([...foundLessons])
 
-      // console.log(lessons)
+    console.log("lessons", lessons)
     })
     
   }
