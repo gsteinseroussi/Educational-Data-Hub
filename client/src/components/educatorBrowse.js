@@ -68,7 +68,7 @@ const EducatorBrowse = (props) => {
                 ))}
               </ul>
             ) : (
-              <h3>No Results to Display</h3>
+              <h6 className="resalts">No Results to Display</h6>
             )}
           </div>
         </div>
