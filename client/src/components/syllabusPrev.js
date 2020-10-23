@@ -4,9 +4,10 @@ import React from "react";
 
 const SyllabusPrev = (props) => {
   return (
-    <div className="syllabus card">
+    <div className="card">
       <div className="card-body">
         <div className="searchContainer">
+
           {/* Instead of "Selected Learning Module" use {} to supply the title of the selected item */}
           <h2>Preview Selected: Learning Module</h2>
           <h3>Lesson Name: {props.selectedLesson.lessonName}</h3>
@@ -24,6 +25,7 @@ const SyllabusPrev = (props) => {
             selected from the search results would show.)
           </p>
           {/* <img src={Sample} alt="sample"></img> */}
+
         </div>
       </div>
     </div>
