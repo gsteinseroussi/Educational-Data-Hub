@@ -1,15 +1,9 @@
 import React from "react";
-
+import "./edBrowseEtc.css";
 
 const GradeSelector = (props) => {
-
-
-
-
-
   return (
-    <div>
-      <span>Grade Range: </span>
+    <div className="boxes">
       <div className="form-check form-check-inline">
         <input
           className="form-check-input"
@@ -49,7 +43,6 @@ const GradeSelector = (props) => {
           9-12
         </label>
       </div>
-     
     </div>
   );
 };

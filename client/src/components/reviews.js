@@ -3,7 +3,7 @@ import Comments from "./comments";
 
 const Reviews = (props) => {
   return (
-    <div className="review card">
+    <div className="card">
       <div className="card-body">
         <div className="searchContainer">
           {/* Instead of "Learning Module" in h2, use {} to enter the name of the selected item */}
