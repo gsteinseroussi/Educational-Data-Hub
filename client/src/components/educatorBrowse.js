@@ -1,40 +1,36 @@
 import React, { useState, useEffect } from "react";
 import GradeSelector from "./gradeSelector";
-import { List, ListItem } from "./educatorResults";
 import API from "../utils/lessonAPI";
-import { Link } from "react-router-dom";
-// import SubjectSelector from "./subjectSelector";
+
 
 const EducatorBrowse = (props) => {
-  const [gradeChoices, setGradeChoices] = useState({"k-5": false, "6-8": false, "9-12": false})
+  const [gradeChoices, setGradeChoices] = useState([])
   const foundLessons = []
   const [lessons, setLessons] = useState([])
+  const [filteredLessons, setFilteredLessons] = useState([]);
+
+  useEffect(() => {
+    API.getAll()
+    .then((results)=> {
+      setLessons(results.data)
+      setFilteredLessons(results.data)
+    })
+  }, [])
 
 
   useEffect(() => {
     console.log('Value of lessons in state', lessons);
  }, [lessons]);
 
+
   const handleGradeChange = (event)=>{
     event.preventDefault();
-    setGradeChoices({...gradeChoices, [event.target.name]: event.target.checked})
-  }
 
-  const search = function (event) {
-    event.preventDefault();
-    console.log(gradeChoices);
-    API.findByGradeLevel(gradeChoices)
-    .then((results)=>{  
-      console.log("results", results)
-      foundLessons.push(results.data[0]);
-      console.log(foundLessons)
+    console.log(event.target.name)
 
-      setLessons([...foundLessons])
-
-    console.log("lessons", lessons)
-    })
-    
-  }
+    const newFilter = lessons.filter(lesson => lesson.gradeLevel[0] === event.target.name)
+    setFilteredLessons(newFilter)
+   }
 
   
 
@@ -47,12 +43,11 @@ const EducatorBrowse = (props) => {
           <p>Browse Lesson plans by grades.</p>
           <form>
             <GradeSelector gradeChoices={gradeChoices} onChange={handleGradeChange}/>
-            <input type="submit" value="Submit" onClick={search} ></input>
           </form>
           <div className="p-4 educatorResults">
-            {lessons.length > 0 ? (
+            {filteredLessons.length > 0 ? (
               <ul>
-                {lessons.map(lesson => (
+                {filteredLessons.map(lesson => (
                   <li key={lesson._id}>
                    <h3>{lesson.lessonName}</h3>
                     {lesson.lessonAbstract}

@@ -39,6 +39,7 @@ function MyDropzone(props) {
     }
   };
 
+
    const handleOnSubmit = async (event) => {
     event.preventDefault();
 
@@ -48,6 +49,7 @@ function MyDropzone(props) {
         console.log(file);
         if (file) {
           const formData = new FormData();
+
            formData.append("file", file);
           formData.append("title", title);
           formData.append("description", description);

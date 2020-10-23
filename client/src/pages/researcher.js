@@ -12,6 +12,7 @@ function Researcher() {
   // set component's initial state
   const [formObject, setFormObject] = useState({});
 
+
   //update component state when the user types into input field
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -35,7 +36,9 @@ function Researcher() {
         })
         .then(console.log(formObject))
         .catch((err) => console.log(err));
+
     }
+
   };
 
 
