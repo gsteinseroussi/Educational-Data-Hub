@@ -1,14 +1,21 @@
 .Home {
-  background-color: #a5a5a5;
+  background-color: #c9c9c9;
 }
 
 .jumbotron {
   background-image: url("../images/chalkboard.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #a5a5a5;
+  background-size: auto;
+  background-repeat: repeat;
+  color: #c9c9c9;
+  font-family: ff-providence-sans-web-pro, sans-serif;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .container-fluid {
   padding-bottom: 2em;
+}
+
+.indent {
+  margin-left: 2em;
 }

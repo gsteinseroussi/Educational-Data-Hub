@@ -3,6 +3,8 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { LOADING, UNSET_USER } from "../store/actions";
 import { useStoreContext } from "../store/store";
+import "./navbar.css";
+import EDSimage from "../images/EDSimage.png";
 
 const Navbar = () => {
   const [state, dispatch] = useStoreContext();
@@ -27,18 +29,18 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <Link to="/" className="btn btn-link text-secondary">
-        <span className="text-secondary">Home</span>
-      </Link>
-      <Link to="/educator" className="btn btn-link text-secondary">
-        <span className="text-secondary">Educator Page</span>
-      </Link>
-      <Link to="/researcher" className="btn btn-link text-secondary">
-        <span className="text-secondary">Researcher</span>
-      </Link>
-      <Link to="/editor" className="btn btn-link text-secondary">
-        <span className="text-secondary">Editor</span>
+    <nav className="navbar navbar-expand-sm">
+      <a class="navbar-brand">
+        <img
+          src={EDSimage}
+          width="55"
+          height="55"
+          class="d-inline-block align-middle"
+          alt="EDS logo"
+        ></img>
+      </a>
+      <Link to="/" className="btn btn-link text-dark">
+        <span className="text-dark">Home</span>
       </Link>
       <button
         className="navbar-toggler"
@@ -55,28 +57,39 @@ const Navbar = () => {
         <ul className="navbar-nav">
           {state.user ? (
             <li className="nav-item active">
-
-              <Link to="#" className="btn btn-link text-secondary" onClick={logout}>
-                <span className="text-secondary">Logout</span>
-
+              <Link
+                to="#"
+                className="btn btn-link text-secondary"
+                onClick={logout}
+              >
+                <span className="text-secondary">Log out</span>
               </Link>
             </li>
           ) : (
             <>
               <li className="nav-item active">
                 <Link to="/login" className="btn btn-link text-secondary">
-                  <span className="text-secondary">login</span>
+                  <span className="text-secondary">Log in</span>
                 </Link>
               </li>
               <li className="nav-item active">
                 <Link to="/signup" className="btn btn-link">
-                  <span className="text-secondary">sign up</span>
+                  <span className="text-secondary">Sign up</span>
                 </Link>
               </li>
             </>
           )}
         </ul>
       </div>
+      <Link to="/educator" className="btn btn-link text-dark">
+        <span className="text-dark">Educators</span>
+      </Link>
+      <Link to="/researcher" className="btn btn-link text-dark">
+        <span className="text-dark">Researchers</span>
+      </Link>
+      <Link to="/editor" className="btn btn-link text-dark">
+        <span className="text-dark">Editors</span>
+      </Link>
     </nav>
   );
 };
