@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import API from "../utils/commentAPI";
+import { formatRelative } from "date-fns";
 
 // component to display comments
 const Comments = (props) => {
@@ -36,7 +37,10 @@ const Comments = (props) => {
           <li>
             <p>{comment.message}</p>
             <p>{comment.userName}</p>
-            <p>{comment.date}</p>
+            <p>
+              {comment.date &&
+                formatRelative(new Date(comment.date), new Date())}
+            </p>
           </li>
         ))}
       </ol>
