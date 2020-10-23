@@ -6,7 +6,7 @@ import "./educator.css";
 import lessonAPI from "../utils/lessonAPI";
 
 const Educator = (props) => {
-  const [selectedLesson, setSelectedLesson] = useState({});
+  const [selectedLesson, setSelectedLesson] = useState(null);
 
   const viewDetails = (id) => {
     console.log("Button clicked", id);
@@ -50,10 +50,12 @@ const Educator = (props) => {
               viewDetails={viewDetails}
             />
           </div>
-          <div className="col-sm-8">
-            <SyllabusPrev selectedLesson={selectedLesson} />
-            <Reviews lessonID={selectedLesson._id} lesson={selectedLesson} />
-          </div>
+          {selectedLesson && (
+            <div className="col-sm-8">
+              <SyllabusPrev selectedLesson={selectedLesson} />
+              <Reviews lessonID={selectedLesson._id} lesson={selectedLesson} />
+            </div>
+          )}
         </div>
       </div>
     </div>
