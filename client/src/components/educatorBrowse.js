@@ -40,7 +40,8 @@ const EducatorBrowse = (props) => {
     <div className="card">
       <div className="card-body">
         <div className="searchContainer">
-          <h2>Choose one or more</h2>
+          <h2>Grade ranges</h2>
+          <p>Choose one or more. Results will display below.</p>
           <form>
             <GradeSelector
               gradeChoices={gradeChoices}
@@ -49,8 +50,11 @@ const EducatorBrowse = (props) => {
             <button className="button" onClick={resetFilters}>
               Reset Filters
             </button>
+            <h4 className="resalts">
+              <u>Results</u>
+            </h4>
           </form>
-          <div className="educatorResults resalts">
+          <div className="educatorResults boxes">
             {filteredLessons.length > 0 ? (
               <ul>
                 {filteredLessons.map((lesson) => (
@@ -68,7 +72,7 @@ const EducatorBrowse = (props) => {
                 ))}
               </ul>
             ) : (
-              <h6 className="resalts">No Results to Display</h6>
+              <h6>No Results to Display</h6>
             )}
           </div>
         </div>
