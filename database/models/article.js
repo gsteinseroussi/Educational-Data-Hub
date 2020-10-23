@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const articleSchema = new Schema({
-  researchDocLink: { type: String },
   editorDocLink: { type: String, default: ""},
   articleName: { type: String, default: "" },
   gradeLevel: [{ type: String, default: "" }],
