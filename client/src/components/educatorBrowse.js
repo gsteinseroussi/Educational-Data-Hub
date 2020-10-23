@@ -32,7 +32,10 @@ const EducatorBrowse = (props) => {
     setFilteredLessons(newFilter)
    }
 
-  
+  const resetFilters =  (event) => {
+    event.preventDefault();
+    setFilteredLessons(lessons);
+  }
 
   
   return (
@@ -43,6 +46,7 @@ const EducatorBrowse = (props) => {
           <p>Browse Lesson plans by grades.</p>
           <form>
             <GradeSelector gradeChoices={gradeChoices} onChange={handleGradeChange}/>
+            <button onClick={resetFilters}>Reset Filters</button>
           </form>
           <div className="p-4 educatorResults">
             {filteredLessons.length > 0 ? (
