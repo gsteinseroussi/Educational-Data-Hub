@@ -1,39 +1,40 @@
 import React, { useState, useEffect } from "react";
-import LessonPlan from './LessonPlan'
-import axios from 'axios'
-import API from '../utils/articleAPI'
-
+import LessonPlan from "./LessonPlan";
+import axios from "axios";
+import API from "../utils/articleAPI";
+import "./edBrowseEtc.css";
 
 // component to display educator results
 const EducatorResults = () => {
   // setting state for lesson plan, which is what the editor uploads to the database
-  const [ lessonPlan, setLessonPlan ] = useState([])
-// retrieving lesson plan from database
+  const [lessonPlan, setLessonPlan] = useState([]);
+  // retrieving lesson plan from database
   useEffect(() => {
-    axios.get('/api/lessons').then(response => {
-      console.log(response.data)
+    axios.get("/api/lessons").then((response) => {
+      console.log(response.data);
       // setting new state for lesson plan based on query
-      setLessonPlan(response.data)
-    })
-  },[])
+      setLessonPlan(response.data);
+    });
+  }, []);
 
   // will display the lesson plan
   return (
-    <div>
+    <div className="Resalts">
       <ol>
-       {lessonPlan?.map(article => <LessonPlan key={article.key} article={article} /> )}
+        {lessonPlan?.map((article) => (
+          <LessonPlan key={article.key} article={article} />
+        ))}
       </ol>
-      </div>
+    </div>
   );
-}
+};
 
 export default EducatorResults;
 
-export function List ({ children }){
+export function List({ children }) {
   return (
-    <div className="list-overflow-container">
+    <div className="list-overflow-container resalts">
       <ul className="list-group">{children}</ul>
-
     </div>
   );
 }
