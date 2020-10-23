@@ -4,7 +4,12 @@ import GradeSelector from "./gradeSelector";
 
 function EditorUpload() {
   // set component's initial state
-  const [formObject, setFormObject] = useState({});
+  const [formObject, setFormObject] = useState({
+    researchDocLink: "",
+    authorName: "",
+    lessonAbstract: "",
+    lessonName: "",
+  });
   const [gradeChoices, setGradeChoices] = useState({
     "k-5": false,
     "6-8": false,
@@ -48,7 +53,14 @@ function EditorUpload() {
         lessonAbstract: formObject.lessonAbstract,
         gradeLevel,
       })
-        .then(console.log(formObject))
+        .then((res) =>
+          setFormObject({
+            researchDocLink: "",
+            authorName: "",
+            lessonAbstract: "",
+            lessonName: "",
+          })
+        )
         .catch((err) => console.log(err));
     }
   }
@@ -61,6 +73,7 @@ function EditorUpload() {
             <input
               className="form-control"
               onChange={handleInputChange}
+              value={formObject.lessonName}
               name="lessonName"
               placeholder="Lesson Plan Name (required)"
             ></input>
@@ -69,6 +82,7 @@ function EditorUpload() {
             <input
               className="form-control mb-4"
               onChange={handleInputChange}
+              value={formObject.authorName}
               name="authorName"
               placeholder="Author Name (required)"
             ></input>
@@ -77,6 +91,7 @@ function EditorUpload() {
             <input
               className="form-control mb-4"
               onChange={handleInputChange}
+              value={formObject.researchDocLink}
               name="researchDocLink"
               placeholder="Google Docs Link (required)"
             ></input>
@@ -89,6 +104,7 @@ function EditorUpload() {
             <textarea
               className="form-control mb-4"
               onChange={handleInputChange}
+              value={formObject.lessonAbstract}
               name="lessonAbstract"
               rows="6"
               placeholder="Abstract (required)"
