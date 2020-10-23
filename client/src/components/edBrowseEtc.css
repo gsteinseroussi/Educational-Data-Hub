@@ -10,3 +10,9 @@
 .resalts {
   margin-top: 2em;
 }
+
+.commentBox {
+  margin-left: 0.5em;
+  margin-right: 0.75em;
+  resize: both;
+}
