@@ -23,24 +23,36 @@ const Educator = (props) => {
   return (
     <div className="educatorPage">
       <div className="jumbotron">
-        <h2 className="display-4">
+        <h1 className="display-4">Educational Data Stream</h1>
+        <h2 className="subhead">
           Browse our content to find the right resources for your classroom
         </h2>
       </div>
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-4">
+            <div className="card">
+              <div className="card-body">
+                <div className="searchContainer">
+                  <h2>How to use this page</h2>
+                  <ol>
+                    <li>Select the grade ranges you teach</li>
+                    <li>Preview selected lesson plans on the screen</li>
+                    <li>Read comments left by other educators</li>
+                    <li>Download what you like</li>
+                    <li>Come back to leave your review</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
             <EducatorBrowse
               setSelectedLesson={setSelectedLesson}
               viewDetails={viewDetails}
             />
           </div>
-
-          <div className="container">
-            <div className="col-sm-8">
-              <SyllabusPrev selectedLesson={selectedLesson} />
-              <Reviews lessonID={selectedLesson._id} lesson={selectedLesson} />
-            </div>
+          <div className="col-sm-8">
+            <SyllabusPrev selectedLesson={selectedLesson} />
+            <Reviews lessonID={selectedLesson._id} lesson={selectedLesson} />
           </div>
         </div>
       </div>
