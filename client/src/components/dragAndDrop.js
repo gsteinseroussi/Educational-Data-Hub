@@ -11,6 +11,7 @@ function MyDropzone(props) {
   });
   const [errorMsg, setErrorMsg] = useState("");
   const dropRef = useRef();
+  
 
   const handleInputChange = (event) => {
     setState({
@@ -38,7 +39,8 @@ function MyDropzone(props) {
     }
   };
 
-  const handleOnSubmit = async (event) => {
+
+   const handleOnSubmit = async (event) => {
     event.preventDefault();
 
     try {
@@ -47,7 +49,8 @@ function MyDropzone(props) {
         console.log(file);
         if (file) {
           const formData = new FormData();
-          formData.append("file", file);
+
+           formData.append("file", file);
           formData.append("title", title);
           formData.append("description", description);
 
@@ -57,26 +60,27 @@ function MyDropzone(props) {
               "Content-Type": "multipart/form-data"
             }
           });
-        } else {
-          setErrorMsg("Please select a file to add.");
+         } else {
+         setErrorMsg("Please select a file to add.");
         }
       } else {
         setErrorMsg("Please enter all field values");
       }
     } catch (error) {
-      error.response && setErrorMsg(error.response.data);
+       error.response && setErrorMsg(error.response.data);
     }
-  };
+   };
 
   return (
     <div className="container">
+      <h2>Upload File</h2>
       <div className="form-group">
       {errorMsg && <p className="errorMsg">{errorMsg}</p>}
         <input
           className="form-control"
           onChange={handleInputChange}
           name="title"
-          placeholder="Title of Article"
+          placeholder="Article File Name"
         ></input>
       </div>
       <div className="form-group">
@@ -84,7 +88,7 @@ function MyDropzone(props) {
           className="form-control mb-4"
           onChange={handleInputChange}
           name="description"
-          placeholder="Description of Article"
+          placeholder="Description of Article File"
         ></input>
       </div>
       <div className="upload-section">
@@ -92,7 +96,9 @@ function MyDropzone(props) {
           {({ getRootProps, getInputProps }) => (
             <div {...getRootProps({ className: "drop-zone" })} ref={dropRef}>
               <input {...getInputProps()} />
+              <br/>
               <p>Drag and drop file or Click here to select</p>
+              <br/>
               {file && (
                 <div>
                   <strong>Selected file:</strong> {file.name}
@@ -102,13 +108,13 @@ function MyDropzone(props) {
           )}
         </Dropzone>
       </div>
-      {/* <button
+      { <button
         type="button"
         className="btn btn-secondary"
         onClick={handleOnSubmit}
       >
-        Submit
-      </button> */}
+        Upload Article File (pdf, doc, xls, jpg accepted)
+      </button> }
     </div>
   );
 }
