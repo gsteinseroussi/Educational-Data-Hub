@@ -5,6 +5,7 @@ import { formatRelative } from "date-fns";
 
 // component to display comments
 const Comments = (props) => {
+  console.log("props for Comments", props.lesson);
   // setting state for comments
   const [comments, setComments] = useState([]);
   const [input, setInput] = useState("");
