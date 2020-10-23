@@ -38,35 +38,35 @@ function MyDropzone(props) {
     }
   };
 
-  // const handleOnSubmit = async (event) => {
-  //   event.preventDefault();
+  const handleOnSubmit = async (event) => {
+    event.preventDefault();
 
-  //   try {
-  //     const { title, description } = state;
-  //     if (title.trim() !== "" && description.trim() !== "") {
-  //       console.log(file);
-  //       if (file) {
-  //         const formData = new FormData();
-  //         formData.append("file", file);
-  //         formData.append("title", title);
-  //         formData.append("description", description);
+    try {
+      const { title, description } = state;
+      if (title.trim() !== "" && description.trim() !== "") {
+        console.log(file);
+        if (file) {
+          const formData = new FormData();
+          formData.append("file", file);
+          formData.append("title", title);
+          formData.append("description", description);
 
-  //         setErrorMsg("");
-  //         await axios.post(`/api/files/upload`, formData, {
-  //           headers: {
-  //             "Content-Type": "multipart/form-data"
-  //           }
-  //         });
-  //       } else {
-  //         setErrorMsg("Please select a file to add.");
-  //       }
-  //     } else {
-  //       setErrorMsg("Please enter all field values");
-  //     }
-  //   } catch (error) {
-  //     error.response && setErrorMsg(error.response.data);
-  //   }
-  // };
+          setErrorMsg("");
+          await axios.post(`/api/files/upload`, formData, {
+            headers: {
+              "Content-Type": "multipart/form-data"
+            }
+          });
+        } else {
+          setErrorMsg("Please select a file to add.");
+        }
+      } else {
+        setErrorMsg("Please enter all field values");
+      }
+    } catch (error) {
+      error.response && setErrorMsg(error.response.data);
+    }
+  };
 
   return (
     <div className="container">

@@ -13,13 +13,7 @@ import FilesList from "../components/filesList"
 function Researcher() {
   // set component's initial state
   const [formObject, setFormObject] = useState({});
-  const [file, setFile] = useState(null);
-  const [state, setState] = useState({
-    title: "",
-    description: ""
-  });
-  const [errorMsg, setErrorMsg] = useState("");
-  const dropRef = useRef();
+
 
   //update component state when the user types into input field
   function handleInputChange(event) {
@@ -46,33 +40,7 @@ function Researcher() {
         })
         .then(console.log(formObject))
         .catch((err) => console.log(err));
-    }
-    //creates file
-    try {
-      const { title, description } = state;
-      if (title.trim() !== "" && description.trim() !== "") {
-        console.log(file);
-        if (file) {
-          const formData = new FormData();
-          formData.append("file", file);
-          formData.append("title", title);
-          formData.append("description", description);
-
-          setErrorMsg("");
-          await axios.post(`/api/files/upload`, formData, {
-            headers: {
-              "Content-Type": "multipart/form-data"
-            }
-          });
-        } else {
-          setErrorMsg("Please select a file to add.");
-        }
-      } else {
-        setErrorMsg("Please enter all field values");
       }
-    } catch (error) {
-      error.response && setErrorMsg(error.response.data);
-    }
   };
 
 

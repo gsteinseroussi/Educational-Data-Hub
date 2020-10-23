@@ -8,9 +8,7 @@ router
   .get(lessonsController.findAll)
   .post(lessonsController.create);
 
-  router
-  .route("/grades")
-  .get(lessonsController.findByGradeLevel);
+
 
 //Matches with "/api/lessons/:id"
 router
