@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import API from "../utils/commentAPI";
 import { formatRelative } from "date-fns";
+import "./edBrowseEtc.css";
 
 // component to display comments
 const Comments = (props) => {
+  console.log("props for Comments", props.lesson);
   // setting state for comments
   const [comments, setComments] = useState([]);
   const [input, setInput] = useState("");
@@ -47,11 +49,13 @@ const Comments = (props) => {
 
       <form onSubmit={handleCommentSubmit}>
         <label>
-          Add comment
-          <input
+          <textarea
+            placeholder="Thank you for reviewing this lesson. Please make this box as large as you like."
+            className="commentBox"
+            type="text"
             name="textbox"
-            row="3"
-            cols="50"
+            row="10"
+            cols="75"
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
