@@ -1,6 +1,7 @@
 import React, { useState, setState, useRef } from "react";
 import Dropzone from "react-dropzone";
 import axios from "axios";
+import API from "../utils/articleAPI";
 
 
 function MyDropzone(props) {
@@ -11,6 +12,8 @@ function MyDropzone(props) {
   });
   const [errorMsg, setErrorMsg] = useState("");
   const dropRef = useRef();
+  const articleID = props.articleID
+  console.log(articleID);
   
 
   const handleInputChange = (event) => {
@@ -53,13 +56,16 @@ function MyDropzone(props) {
            formData.append("file", file);
           formData.append("title", title);
           formData.append("description", description);
+          formData.append("articleID", articleID);
 
           setErrorMsg("");
-          await axios.post(`/api/files/upload`, formData, {
+          const fileResponse = await axios.post(`/api/files/upload`, formData, {
             headers: {
               "Content-Type": "multipart/form-data"
             }
           });
+          console.log("articleId", articleID, "file response:", fileResponse)
+          API.addFileID(articleID, fileResponse.data.file._id)
          } else {
          setErrorMsg("Please select a file to add.");
         }

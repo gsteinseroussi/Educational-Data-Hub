@@ -8,7 +8,8 @@ const articleSchema = new Schema({
   subject: { type: String, default: "" },
   authorName: { type: String, default: "" },
   articleAbstract: { type: String, default: "" },
-  fileArray: [{ type: Schema.Types.ObjectId, ref: "file" }],
+  fileArray: [{ type: Schema.Types.ObjectId, ref: "File" }],
+  fileID: {type: String, required: false, default: ""},
   claimed: { type: Boolean, default: false },
 });
 

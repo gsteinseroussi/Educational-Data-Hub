@@ -9,6 +9,9 @@ function Researcher() {
   // set component's initial state
   const [formObject, setFormObject] = useState({});
   const [articleID, setArticleID] = useState("");
+  useEffect (()=>{
+    console.log(articleID);
+  }, [articleID])
 
   //update component state when the user types into input field
   function handleInputChange(event) {
@@ -33,6 +36,7 @@ function Researcher() {
         .then((res) => {
           console.log(res);
           setArticleID(res.data._id);
+          console.log(articleID);
         })
         .catch((err) => console.log(err));
     }
