@@ -49,7 +49,9 @@ const EditorPreview = () => {
         <div className="searchContainer">
           {article ? (
             <div>
-              <h2>Article to Adapt:</h2>
+              <h2>
+                <u>Assigned Article</u>
+              </h2>
               <h4>Title: {article.articleName}</h4>
               <p>Link: {article.researchDocLink}</p>
               <p>Description: {article.articleAbstract}</p>
