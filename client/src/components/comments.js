@@ -25,11 +25,18 @@ const Comments = (props) => {
     event.preventDefault();
     if (!input) return;
     console.log(props.lessonID);
+
     API.saveComments(input, props.lessonID).then((response) => {
       console.log(response);
+      props.viewDetails(props.lessonID);
       setInput("");
     });
   }
+
+  // function displayAllComments() {
+  //   setComments(props.lesson.commentArray);
+  // }
+  // displayAllComments();
 
   // will display the comments
   return (
@@ -37,8 +44,8 @@ const Comments = (props) => {
       <ol>
         {props.lesson.commentArray?.map((comment) => (
           <li>
-            <p>{comment.message}</p>
-            <p>{comment.userName}</p>
+            <p>Review: {comment.message}</p>
+            <p>User: {comment.userName}</p>
             <p>
               {comment.date &&
                 formatRelative(new Date(comment.date), new Date())}
