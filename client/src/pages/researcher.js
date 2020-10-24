@@ -67,6 +67,12 @@ function Researcher() {
                 </div>
               </div>
             </div>
+
+            <div className="card">
+              <div className="card-body">
+                <FilesList />
+              </div>
+            </div>
           </div>
 
           <div className="col-md-6">
@@ -113,15 +119,6 @@ function Researcher() {
                   ) : (
                     <MyDropzone articleID={articleID} />
                   )}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-6">
-              <div className="card">
-                <div className="card-body">
-                  <FilesList />
                 </div>
               </div>
             </div>
