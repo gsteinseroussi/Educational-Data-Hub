@@ -2,6 +2,7 @@ import React from "react";
 import EditorPreview from "../components/editorPreview";
 import EditorUpload from "../components/editorUpload";
 import EducatorResults from "../components/educatorResults";
+import FilesList from "../components/filesList";
 import "./editor.css";
 
 const Editor = (props) => {
@@ -41,6 +42,9 @@ const Editor = (props) => {
           </div>
           <div className="col-md-6">
             <EditorUpload />
+          </div>
+          <div className="col-md-6">
+            <FilesList />
           </div>
         </div>
       </div>

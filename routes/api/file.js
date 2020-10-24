@@ -79,6 +79,18 @@ router.get("/getAllFiles", async (req, res) => {
   }
 });
 
+//getFilebyArticleId
+router.get("/getFilebyArticleID", async (req, res) => {
+  try {
+    const fileID = req.body.fileID
+    const file = await File.findById({fileID});
+    res.send(file);
+  } catch (error) {
+    res.status(400).send("error while getting file for article");
+  }
+  
+})
+
 //download by id route
 router.get('/download/:id', async (req, res) => {
   console.log("in download route", __dirname, path.join(__dirname, '..'))

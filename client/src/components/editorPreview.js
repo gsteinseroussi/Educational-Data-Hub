@@ -4,6 +4,7 @@ import API from "../utils/articleAPI";
 
 const EditorPreview = () => {
   const [article, setArticle] = useState({});
+  const [file, setFile] = useState({});
 
   //loads article to edit into the assigned area
   useEffect(() => {
@@ -35,7 +36,9 @@ const EditorPreview = () => {
       })
       .catch((err) => console.log(err));
   }
+  function loadDownloadLink() {
 
+  }
   function claimArticle(id) {
     API.claimArticle(id)
       .then((res) => res.json)
