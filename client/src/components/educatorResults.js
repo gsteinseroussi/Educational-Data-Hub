@@ -33,7 +33,7 @@ export default EducatorResults;
 
 export function List({ children }) {
   return (
-    <div className="list-overflow-container resalts">
+    <div className="list-overflow-container darkFont">
       <ul className="list-group">{children}</ul>
     </div>
   );
