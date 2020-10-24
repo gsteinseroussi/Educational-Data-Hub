@@ -8,18 +8,8 @@ import "./edBrowseEtc.css";
 const Comments = (props) => {
   console.log("props for Comments", props.lesson);
   // setting state for comments
-  const [comments, setComments] = useState([]);
-  const [input, setInput] = useState("");
 
-  //retrieving comments from database
-  // useEffect(() => {
-  //   //   make sure the comment is attached to the lessonID
-  //   API.getComments(props.lessonID).then((response) => {
-  //     console.log(response.data);
-  //     // setting new state for comments
-  //     setComments(response.data);
-  //   });
-  // }, []);
+  const [input, setInput] = useState("");
 
   function handleCommentSubmit(event) {
     event.preventDefault();
@@ -32,11 +22,6 @@ const Comments = (props) => {
       setInput("");
     });
   }
-
-  // function displayAllComments() {
-  //   setComments(props.lesson.commentArray);
-  // }
-  // displayAllComments();
 
   // will display the comments
   return (
