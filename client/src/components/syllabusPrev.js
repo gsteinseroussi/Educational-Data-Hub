@@ -12,7 +12,7 @@ const SyllabusPrev = (props) => {
           <p> Author Name: {props.selectedLesson.authorName}</p>
           <p>Lesson Abstract: {props.selectedLesson.lessonAbstract}</p>
           <p>
-            <a href={props.selectedLesson.researchDocLink} target="*">
+            <a href={props.selectedLesson.researchDocLink} target="_blank">
               Google Doc Link
             </a>
           </p>

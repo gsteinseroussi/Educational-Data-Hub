@@ -7,7 +7,11 @@ const Reviews = (props) => {
       <div className="card-body">
         <div className="searchContainer">
           <h2 className="card-title">Lesson Plan Reviews</h2>
-          <Comments lessonID={props.lessonID} lesson={props.lesson} />
+          <Comments
+            viewDetails={props.viewDetails}
+            lessonID={props.lessonID}
+            lesson={props.lesson}
+          />
         </div>
       </div>
     </div>
