@@ -20,3 +20,11 @@
 .darkFont {
   color: black;
 }
+
+.lightFont {
+  color: #c9c9c9;
+}
+
+.abstract {
+  margin-bottom: 2em;
+}
