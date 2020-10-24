@@ -61,7 +61,6 @@ const EducatorBrowse = (props) => {
                   <li className="list-group-item" key={lesson._id}>
                     <h4>{lesson.lessonName}</h4>
                     <p className="abstract">{lesson.lessonAbstract}</p>
-                    <br></br>
                     <button
                       onClick={(e) => props.viewDetails(e.target.value)}
                       value={lesson._id}
