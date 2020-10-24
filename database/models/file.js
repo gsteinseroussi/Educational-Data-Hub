@@ -19,6 +19,10 @@ const fileSchema = mongoose.Schema(
     file_mimetype: {
       type: String,
       required: true
+    },
+    articleID: {
+      type: String,
+      required: true
     }
   },
   { timestamps: true }

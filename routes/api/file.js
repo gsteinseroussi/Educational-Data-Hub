@@ -41,16 +41,19 @@ router.post(
   async (req, res) => {
     console.log("req-body and file", req.body, req.file);
     try {
-      const { title, description } = req.body;
+      const { title, description, articleID } = req.body;
       const { path, mimetype } = req.file;
       const file = new File({
         title,
         description,
+        articleID,
         file_path: path,
         file_mimetype: mimetype
       });
+      console.log(file)
       await file.save();
-      res.send("file uploaded succesfully.");
+      console.log(file)
+      res.json({message: "file uploaded succesfully", file});
     } catch (error) {
       res.status(400).send("error while uploading file");
     }
