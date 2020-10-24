@@ -54,7 +54,7 @@ const EducatorBrowse = (props) => {
               <u>Results</u>
             </h4>
           </form>
-          <div className="educatorResults boxes">
+          <div className="educatorResults">
             {filteredLessons.length > 0 ? (
               <ul className="list-group">
                 {filteredLessons.map((lesson) => (
