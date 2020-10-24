@@ -53,14 +53,15 @@ function EditorUpload() {
         lessonAbstract: formObject.lessonAbstract,
         gradeLevel,
       })
-        .then((res) =>
+        .then((res) => {
+          alert("lesson submitted");
           setFormObject({
             researchDocLink: "",
             authorName: "",
             lessonAbstract: "",
             lessonName: "",
-          })
-        )
+          });
+        })
         .catch((err) => console.log(err));
     }
   }
