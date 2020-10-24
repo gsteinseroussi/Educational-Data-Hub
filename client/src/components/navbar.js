@@ -30,12 +30,12 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-sm">
-      <a class="navbar-brand" href="/">
+      <a className="navbar-brand" href="/">
         <img
           src={EDSimage}
           width="55"
           height="55"
-          class="d-inline-block align-middle"
+          className="d-inline-block align-middle"
           alt="EDS logo"
         ></img>
       </a>
