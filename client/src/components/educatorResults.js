@@ -40,5 +40,5 @@ export function List({ children }) {
 }
 
 export function ListItem({ children }) {
-  return <li className="list-group-item darkFont">{children}</li>;
+  return <li className="list-group-item">{children}</li>;
 }

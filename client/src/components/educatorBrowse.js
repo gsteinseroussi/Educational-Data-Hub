@@ -54,13 +54,13 @@ const EducatorBrowse = (props) => {
               <u>Results</u>
             </h4>
           </form>
-          <div className="educatorResults">
+          <div className="educatorResults darkFont">
             {filteredLessons.length > 0 ? (
               <ul className="list-group">
                 {filteredLessons.map((lesson) => (
                   <li className="list-group-item" key={lesson._id}>
-                    <h3>{lesson.lessonName}</h3>
-                    {lesson.lessonAbstract}
+                    <h4>{lesson.lessonName}</h4>
+                    <p className="abstract">{lesson.lessonAbstract}</p>
                     <br></br>
                     <button
                       onClick={(e) => props.viewDetails(e.target.value)}
@@ -72,7 +72,7 @@ const EducatorBrowse = (props) => {
                 ))}
               </ul>
             ) : (
-              <h6>No Results to Display</h6>
+              <h6 className="lightFont">No Results to Display</h6>
             )}
           </div>
         </div>
