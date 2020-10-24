@@ -41,7 +41,7 @@ const EducatorBrowse = (props) => {
       <div className="card-body">
         <div className="searchContainer">
           <h2>Grade ranges</h2>
-          <p>Choose one or more. Results will display below.</p>
+          <p>Select a grade range. Results will display below.</p>
           <form>
             <GradeSelector
               gradeChoices={gradeChoices}
@@ -56,9 +56,9 @@ const EducatorBrowse = (props) => {
           </form>
           <div className="educatorResults boxes">
             {filteredLessons.length > 0 ? (
-              <ul>
+              <ul className="list-group">
                 {filteredLessons.map((lesson) => (
-                  <li key={lesson._id}>
+                  <li className="list-group-item" key={lesson._id}>
                     <h3>{lesson.lessonName}</h3>
                     {lesson.lessonAbstract}
                     <br></br>
