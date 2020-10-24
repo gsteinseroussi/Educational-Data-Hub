@@ -59,7 +59,7 @@ const EducatorBrowse = (props) => {
               <ul className="list-group">
                 {filteredLessons.map((lesson) => (
                   <li className="list-group-item" key={lesson._id}>
-                    <h4>{lesson.lessonName}</h4>
+                    <h5>{lesson.lessonName}</h5>
                     <p className="abstract">{lesson.lessonAbstract}</p>
                     <button
                       onClick={(e) => props.viewDetails(e.target.value)}
