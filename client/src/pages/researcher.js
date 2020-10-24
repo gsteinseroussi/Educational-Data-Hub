@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-
 import MyDropzone from "../components/dragAndDrop";
 import axios from "axios";
 import API from "../utils/articleAPI";
 import FilesList from "../components/filesList";
+import "./researcher.css";
 
 function Researcher() {
   // set component's initial state
@@ -39,84 +39,92 @@ function Researcher() {
   };
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col">
-          <div className="jumbotron">
-            <div className="container">
-              <h2>Directions for Researchers</h2>
-              <br />
-              <p>
-                Welcome to the Educational Data Stream, where your research can
-                impact K-12 students across the United States! Please first
-                complete the Article Information with the Article Name, Author
-                Name, and a brief abstract. Then, upload your Article
-                Information.{" "}
-              </p>
-              <p>
-                Then, upload your file. You can then drag and drop your file in
-                the dropzone, or click to browse. Enter a name for the file to
-                be saved as and a brief description.
-              </p>
-              <p>
-                After you submit, our editors will curate content for educators
-                to access and put your research to work shaping future
-                generations.
-              </p>
-              <p>Thank you!</p>
-              <p>-The EDS Team-</p>
+    <div className="researcherPage">
+      <div className="jumbotron">
+        <h1 className="display-4">Educational Data Stream</h1>
+        <h2 className="subhead">Thank you for sharing your research</h2>
+      </div>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-md-6">
+            <div className="card">
+              <div className="card-body">
+                <div className="searchContainer">
+                  <h2>How to submit your work</h2>
+                  <ol>
+                    <li>
+                      Fill in & submit the form with your article's title, your
+                      name and an abstract (up to 200 words)
+                    </li>
+                    <li>
+                      Upload your article (PDF) using the drag-and-drop field or
+                      the file search feature
+                    </li>
+                    <li>
+                      That's it! Thank you for your contribution to education!
+                    </li>
+                  </ol>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="col">
-          <div className="jumbotron">
-            {!articleID ? (
-              <div>
-                <h2>Article Information</h2>
-                <div className="form-group">
-                  <input
-                    className="form-control"
-                    onChange={handleInputChange}
-                    name="articleName"
-                    placeholder="Article Name (required)"
-                  ></input>
-                </div>
-                <div className="form-group">
-                  <input
-                    className="form-control mb-4"
-                    onChange={handleInputChange}
-                    name="authorName"
-                    placeholder="Author Name (required)"
-                  ></input>
-                </div>
-                <div className="form-group">
-                  <textarea
-                    className="form-control mb-4"
-                    onChange={handleInputChange}
-                    name="articleAbstract"
-                    rows="6"
-                    placeholder="Abstract (required)"
-                  ></textarea>
-                </div>
 
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  onClick={handleFormSubmit}
-                >
-                  Submit Article Information
-                </button>
+          <div className="col-md-6">
+            <div className="card">
+              <div className="card-body">
+                <div className="searchContainer">
+                  {!articleID ? (
+                    <div>
+                      <h2>Article Information</h2>
+                      <div className="form-group">
+                        <input
+                          className="form-control"
+                          onChange={handleInputChange}
+                          name="articleName"
+                          placeholder="Article Name (required)"
+                        ></input>
+                      </div>
+                      <div className="form-group">
+                        <input
+                          className="form-control mb-4"
+                          onChange={handleInputChange}
+                          name="authorName"
+                          placeholder="Author Name (required)"
+                        ></input>
+                      </div>
+                      <div className="form-group">
+                        <textarea
+                          className="form-control mb-4"
+                          onChange={handleInputChange}
+                          name="articleAbstract"
+                          rows="6"
+                          placeholder="Abstract (required)"
+                        ></textarea>
+                      </div>
+
+                      <button
+                        type="button"
+                        className="btn btn-secondary"
+                        onClick={handleFormSubmit}
+                      >
+                        Submit Article Information
+                      </button>
+                    </div>
+                  ) : (
+                    <MyDropzone articleID={articleID} />
+                  )}
+                </div>
               </div>
-            ) : (
-              <MyDropzone articleID={articleID} />
-            )}
+            </div>
           </div>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col">
-          <div className="jumbotron">
-            <FilesList />
+          <div className="row">
+            <div className="col-md-6">
+              <div className="card">
+                <div className="card-body">
+                  <FilesList />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
