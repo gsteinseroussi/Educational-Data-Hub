@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-sm">
-      <a class="navbar-brand">
+      <a class="navbar-brand" href="/">
         <img
           src={EDSimage}
           width="55"
