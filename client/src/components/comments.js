@@ -39,7 +39,7 @@ const Comments = (props) => {
         ))}
       </ol>
 
-      <form onSubmit={handleCommentSubmit}>
+      <form className="form-inline" onSubmit={handleCommentSubmit}>
         <label>
           <textarea
             placeholder="Thank you for reviewing this lesson. Please make this box as large as you like."
