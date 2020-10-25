@@ -14,7 +14,7 @@ router
   .route("/:id")
   .get(articlesController.findById)
   .put(articlesController.update)
-  //.put(articlesController.claimArticle)
+  // .put(articlesController.claimArticle)
   .delete(articlesController.remove);
 
   router

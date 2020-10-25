@@ -3,11 +3,12 @@ import download from "downloadjs";
 import axios from "axios";
 import "../pages/editor.css";
 
-const FilesList = (props) => {
+const FilesList = () => {
   const [filesList, setFilesList] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
 
   useEffect(() => {
+    
     const getFilesList = async () => {
       try {
         const { data } = await axios.get("/api/files/getAllFiles");

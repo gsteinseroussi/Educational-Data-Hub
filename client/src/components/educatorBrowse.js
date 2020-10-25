@@ -43,8 +43,13 @@ const EducatorBrowse = (props) => {
           <h2>Grade ranges</h2>
           <p>Select a grade range. Results will display below.</p>
           <form>
-            <GradeSelector handleGradeChange={handleGradeChange} resetFilters={resetFilters}/>
-            <h4 className="resalts">
+          <div className="boxes">
+      <button className="button" onClick={handleGradeChange} name="k-5">K-5</button>
+      <button className="button" onClick={handleGradeChange} name="6-8">6-8</button>
+      <button className="button" onClick={handleGradeChange} name="9-12">9-12</button>
+      <button className="button" onClick={resetFilters}>Reset Filters</button>
+    </div>
+            <h4 className="results">
               <u>Results</u>
             </h4>
           </form>
