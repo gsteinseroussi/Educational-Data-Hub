@@ -53,11 +53,13 @@ const Educator = (props) => {
           {selectedLesson && (
             <div className="col-sm-8">
               <SyllabusPrev selectedLesson={selectedLesson} />
-              <Reviews
-                viewDetails={viewDetails}
-                lessonID={selectedLesson._id}
-                lesson={selectedLesson}
-              />
+              <div className="col-sm-8 commentsBox">
+                <Reviews
+                  viewDetails={viewDetails}
+                  lessonID={selectedLesson._id}
+                  lesson={selectedLesson}
+                />
+              </div>
             </div>
           )}
         </div>
