@@ -87,7 +87,7 @@ const Login = () => {
           <div className="form-group ">
             <div className="col-7"></div>
             <button
-              className="btn btn-primary col-1"
+              className="btn btn-secondary col-1"
               onClick={handleSubmit}
               type="submit"
             >

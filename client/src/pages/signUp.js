@@ -82,7 +82,7 @@ const SignUp = () => {
           <div className="form-group ">
             <div className="col-7"></div>
             <button
-              className="btn btn-primary col-1 col-mr-auto"
+              className="btn btn-secondary col-1 col-mr-auto"
               onClick={handleSubmit}
               type="submit"
             >
