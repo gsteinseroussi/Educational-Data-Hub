@@ -9,9 +9,9 @@ function Researcher() {
   // set component's initial state
   const [formObject, setFormObject] = useState({});
   const [articleID, setArticleID] = useState("");
-  useEffect (()=>{
+  useEffect(() => {
     console.log(articleID);
-  }, [articleID])
+  }, [articleID]);
 
   //update component state when the user types into input field
   function handleInputChange(event) {
@@ -69,12 +69,6 @@ function Researcher() {
                     </li>
                   </ol>
                 </div>
-              </div>
-            </div>
-
-            <div className="card">
-              <div className="card-body">
-                <FilesList />
               </div>
             </div>
           </div>
