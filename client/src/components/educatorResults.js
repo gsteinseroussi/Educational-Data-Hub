@@ -19,7 +19,7 @@ const EducatorResults = () => {
 
   // will display the lesson plan
   return (
-    <div className="Resalts">
+    <div className="Results">
       <ol>
         {lessonPlan?.map((article) => (
           <LessonPlan key={article.key} article={article} />

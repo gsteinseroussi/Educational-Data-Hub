@@ -12,7 +12,7 @@ const EducatorBrowse = (props) => {
   useEffect(() => {
     API.getAll().then((results) => {
       setLessons(results.data);
-      setFilteredLessons(results.data);
+      
     });
   }, []);
 
@@ -22,7 +22,7 @@ const EducatorBrowse = (props) => {
 
   const handleGradeChange = (event) => {
     event.preventDefault();
-
+    setFilteredLessons(...lessons);
     console.log(event.target.name);
 
     const newFilter = lessons.filter(
@@ -33,7 +33,7 @@ const EducatorBrowse = (props) => {
 
   const resetFilters = (event) => {
     event.preventDefault();
-    setFilteredLessons(lessons);
+    setFilteredLessons([]);
   };
 
   return (
@@ -43,13 +43,7 @@ const EducatorBrowse = (props) => {
           <h2>Grade ranges</h2>
           <p>Select a grade range. Results will display below.</p>
           <form>
-            <GradeSelector
-              gradeChoices={gradeChoices}
-              onChange={handleGradeChange}
-            />
-            <button className="button" onClick={resetFilters}>
-              Reset Filters
-            </button>
+            <GradeSelector handleGradeChange={handleGradeChange} resetFilters={resetFilters}/>
             <h4 className="resalts">
               <u>Results</u>
             </h4>
@@ -71,7 +65,7 @@ const EducatorBrowse = (props) => {
                 ))}
               </ul>
             ) : (
-              <h6 className="lightFont">No Results to Display</h6>
+              <p className="lightFont">No grade range selected</p>
             )}
           </div>
         </div>

@@ -60,6 +60,13 @@ const Educator = (props) => {
                 lesson={selectedLesson}
               />
             </div>
+          )
+          ||
+          (
+            <div className="col-sm-8">
+            <SyllabusPrev />
+            <Reviews />
+            </div>
           )}
         </div>
       </div>
