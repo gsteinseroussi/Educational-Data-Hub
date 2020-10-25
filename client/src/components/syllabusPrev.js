@@ -7,7 +7,7 @@ const SyllabusPrev = (props) => {
       <div className="card-body">
         <div className="searchContainer">
           <h2>Lesson Plan Preview</h2>
-          <h4>Title:{props.selectedLesson.lessonName}</h4>
+          <h4>Title: {props.selectedLesson.lessonName}</h4>
           <p>Grade Range: {props.selectedLesson?.gradeLevel?.join(", ")}</p>
           <p>Author: {props.selectedLesson.authorName}</p>
           <p>Description: {props.selectedLesson.lessonAbstract}</p>
