@@ -26,11 +26,11 @@ const Comments = (props) => {
   // will display the comments
   return (
     <div>
-      <ol>
+      <ol className="list-group">
         {props.lesson.commentArray?.map((comment) => (
-          <li>
-            <p>Review: {comment.message}</p>
-            <p>User: {comment.userName}</p>
+          <li className="list-group-item">
+            <p>{comment.message}</p>
+            <p>By {comment.userName}</p>
             <p>
               {comment.date &&
                 formatRelative(new Date(comment.date), new Date())}
