@@ -22,5 +22,11 @@
   display: table;
   border-collapse: separate;
   border-spacing: 2px;
-  border-color: gray;
+  padding: 10px;
+}
+
+th,
+td {
+  padding: 10px;
+  border-bottom: 1px solid #c9c9c9;
 }
