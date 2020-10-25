@@ -8,16 +8,16 @@ const SyllabusPrev = (props) => {
       <div className="card-body">
         <div className="searchContainer">
           <h2>Lesson Plan Preview</h2>
-          <h4>Title: {props.selectedLesson.lessonName}</h4>
+          <h4>Title: {props.selectedLesson?.lessonName}</h4>
           <p>Grade Range: {props.selectedLesson?.gradeLevel?.join(", ")}</p>
-          <p>Author: {props.selectedLesson.authorName}</p>
-          <p>Description: {props.selectedLesson.lessonAbstract}</p>
+          <p>Author: {props.selectedLesson?.authorName}</p>
+          <p>Description: {props.selectedLesson?.lessonAbstract}</p>
           <p>
             <a
-              href={"http://" + props.selectedLesson.researchDocLink}
+              href={"http://" + props.selectedLesson?.researchDocLink}
               target="_blank"
             >
-              Google Doc Link
+              {props.selectedLesson?.lessonName}
             </a>
           </p>
         </div>
