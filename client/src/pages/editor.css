@@ -9,6 +9,18 @@
   color: #c9c9c9;
 }
 
-.container-fluid {
-  padding-bottom: 2em;
+.searchContainer {
+  background-image: url("../images/chalkboard.jpeg");
+  color: #c9c9c9;
+  padding: 2rem;
+  margin: 2px;
+  flex: 100%;
+}
+
+.files-table {
+  border: 1px solid #c9c9c9;
+  display: table;
+  border-collapse: separate;
+  border-spacing: 2px;
+  border-color: gray;
 }

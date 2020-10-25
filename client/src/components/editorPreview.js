@@ -1,6 +1,7 @@
 import { set } from "mongoose";
 import React, { useState, useEffect } from "react";
 import API from "../utils/articleAPI";
+import "../pages/editor.css";
 
 const EditorPreview = () => {
   const [article, setArticle] = useState({});
@@ -36,9 +37,7 @@ const EditorPreview = () => {
       })
       .catch((err) => console.log(err));
   }
-  function loadDownloadLink() {
-
-  }
+  function loadDownloadLink() {}
   function claimArticle(id) {
     API.claimArticle(id)
       .then((res) => res.json)

@@ -22,7 +22,7 @@ const Editor = (props) => {
                   <ol>
                     <li>
                       Process the article presented to you upon loading the
-                      editorPage
+                      editor page
                     </li>
                     <li>
                       Create lesson plans and place them in a Google document
@@ -39,12 +39,10 @@ const Editor = (props) => {
               </div>
             </div>
             <EditorPreview />
+            <FilesList />
           </div>
           <div className="col-md-6">
             <EditorUpload />
-          </div>
-          <div className="col-md-6">
-            <FilesList />
           </div>
         </div>
       </div>
