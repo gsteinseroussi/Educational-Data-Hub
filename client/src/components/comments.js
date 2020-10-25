@@ -29,7 +29,7 @@ const Comments = (props) => {
       <ol className="list-group">
         {props.lesson.commentArray?.map((comment) => (
           <li className="list-group-item">
-            <p>{comment.message}</p>
+            <p>"{comment.message}"</p>
             <p>By {comment.userName}</p>
             <p>
               {comment.date &&
