@@ -6,7 +6,7 @@ const Reviews = (props) => {
   return (
     <div className="card">
       <div className="card-body">
-        <div className="searchContainer darkFont">
+        <div className="searchContainer">
           <h2 className="card-title">Lesson Plan Reviews</h2>
           <Comments
             viewDetails={props.viewDetails}

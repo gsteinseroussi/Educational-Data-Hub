@@ -1,5 +1,6 @@
 import { PromiseProvider } from "mongoose";
 import React from "react";
+import "./edBrowseEtc.css";
 
 const SyllabusPrev = (props) => {
   return (
