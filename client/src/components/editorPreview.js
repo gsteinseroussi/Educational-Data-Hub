@@ -1,6 +1,7 @@
 import { set } from "mongoose";
 import React, { useState, useEffect } from "react";
 import API from "../utils/articleAPI";
+import FilesList from "./filesList";
 
 const EditorPreview = () => {
   const [article, setArticle] = useState({});
@@ -11,14 +12,14 @@ const EditorPreview = () => {
     loadArticle();
   }, []);
 
-  useEffect(() => {
-    console.log("Value of article in state", article);
-    if (!article) {
-      return;
-    } else {
-      claimArticle(article._id);
-    }
-  }, [article]);
+  // useEffect(() => {
+  //   console.log("Value of article in state", article);
+  //   if (!article) {
+  //     return;
+  //   } else {
+  //     claimArticle(article._id);
+  //   }
+  // }, [article]);
 
   //finds the article selected to edit and sets it to article
   function loadArticle() {
@@ -36,9 +37,7 @@ const EditorPreview = () => {
       })
       .catch((err) => console.log(err));
   }
-  function loadDownloadLink() {
-
-  }
+  
   function claimArticle(id) {
     API.claimArticle(id)
       .then((res) => res.json)
