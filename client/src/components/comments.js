@@ -25,7 +25,7 @@ const Comments = (props) => {
 
   // will display the comments
   return (
-    <div>
+    <div className="darkFont">
       <ol className="list-group">
         {props.lesson.commentArray?.map((comment) => (
           <li className="list-group-item">
