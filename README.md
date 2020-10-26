@@ -64,7 +64,7 @@ No license: When you make a creative work (which includes code), the work is und
 
 EDS has a great team!
 
-- <b>Lisa Ellison</b> designed the page & carried out layout & styling throughout, and helped with concept along the way. <br> Github profile: <https://github.com/lisaellison> <br> Email: <lisaellison9@gmail.com>
+- <b>Lisa Ellison</b> designed the page & carried out layout & styling throughout, and helped identify the concept. <br> Github profile: <https://github.com/lisaellison> <br> Email: <lisaellison9@gmail.com>
 
 - <b>Aaron Sims</b> provided the idea. Creating the comments box, front- & back-end, for the educators' reviews was his corner of the project. He contributed to other parts of the project as well. <br>Github profile: <https://github.com/Aecntrik17> <br>Email: <aaron@adsimsllc.com>
 
