@@ -84,19 +84,26 @@ const SignUp = () => {
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="exampleFormControlSelect1">User Type</label>
-            <select
-              onChange={handleChange}
-              name="userType"
-              value={signUpCreds.userType}
-              className="form-control"
-              id="userType"
-            >
-              <option value="">Select a user type</option>
-              <option value="Educator">Educator</option>
-              <option value="Researcher">Reseacher</option>
-              <option value="Editor">Editor</option>
-            </select>
+            <div className="col-1 col-ml-auto">
+              <label className="form-label" htmlFor="userType">
+                User Type:
+              </label>
+            </div>
+
+            <div className="col-3 col-mr-auto">
+              <select
+                onChange={handleChange}
+                name="userType"
+                value={signUpCreds.userType}
+                className="form-control"
+                id="userType"
+              >
+                <option value="">Select a user type</option>
+                <option value="Educator">Educator</option>
+                <option value="Researcher">Reseacher</option>
+                <option value="Editor">Editor</option>
+              </select>
+            </div>
           </div>
           <div className="form-group ">
             <div className="col-7"></div>
