@@ -2,7 +2,7 @@
 
 # Educational Data Stream (EDS)
 
-Deployed app: https://educational-data-stream.herokuapp.com/
+Deployed app: https://educational-data-stream.herokuapp.com/ <br>
 GitHub repo: https://github.com/gsteinseroussi/Educational-Data-Hub
 
 ## Description
@@ -35,11 +35,17 @@ See "Usage" for more details.
 The three user types interact differently with EDS. Each user has directions on the screen.
 
 1. The educator first selects the grade range they teach.
+
    ![Screen Shot 2020-10-25 at 9 30 48 PM](https://user-images.githubusercontent.com/64434411/97125158-5e597e80-1709-11eb-8541-29d6b35fb196.png)
+
    Available lesson plans for that grade range then populate.
+
    ![Screen Shot 2020-10-25 at 9 33 30 PM](https://user-images.githubusercontent.com/64434411/97125257-bee8bb80-1709-11eb-974e-ca71d88f4113.png)
+
    When the educator selects "View Details", the lesson plan populates to the right with a link to the full plan. Reviews of the plan by other educators populate at the same time below the lesson plan.
+
    ![Screen Shot 2020-10-25 at 9 34 29 PM](https://user-images.githubusercontent.com/64434411/97125529-a4631200-170a-11eb-9466-d778eab24b93.png)
+
    The user is encouraged to add their own review to assist other educators decide whether the lesson plan will be a good choice for them.
 
 2. The reseacher firsts submit the name of their article, their own name & an abstract of their research.
