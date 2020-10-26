@@ -54,7 +54,7 @@ The three user types interact differently with EDS. Each user has directions on 
    
    Once the article information is submitted, the "Article Information" box is replaced with a file upload box. The researcher then submits their article as a PDF (other file types are also accepted) using our drag-and-drop file uploader, or by clicking if they prefer to select their file from a file tree.
   
-  ![Screen Shot 2020-10-25 at 9 20 58 PM](https://user-images.githubusercontent.com/64434411/97124811-ff473a00-1707-11eb-85b8-a1f8b2e093e6.png)
+   ![Screen Shot 2020-10-25 at 9 20 58 PM](https://user-images.githubusercontent.com/64434411/97124811-ff473a00-1707-11eb-85b8-a1f8b2e093e6.png)
   
 3. The editor is first presented with an article submitted by a researcher. After the editor completes the lesson plans based on the article, they will complete the upload form, including a link to the lesson plan as a Google Doc link which the educator will use to download the plan.
 
