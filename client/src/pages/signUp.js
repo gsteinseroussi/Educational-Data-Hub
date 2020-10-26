@@ -9,6 +9,7 @@ const SignUp = () => {
   const [signUpCreds, setSignUpCreds] = useState({
     username: "",
     password: "",
+    userType: "",
   });
 
   const handleChange = (event) => {
@@ -19,11 +20,14 @@ const SignUp = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (!signUpCreds.username || !signUpCreds.password || !signUpCreds.userType)
+      return;
 
     axios
       .post("/api/users", {
         username: signUpCreds.username,
         password: signUpCreds.password,
+        userType: signUpCreds.userType,
       })
       .then((response) => {
         if (!response.data.errmsg) {
@@ -78,6 +82,21 @@ const SignUp = () => {
                 onChange={handleChange}
               />
             </div>
+          </div>
+          <div className="form-group">
+            <label htmlFor="exampleFormControlSelect1">User Type</label>
+            <select
+              onChange={handleChange}
+              name="userType"
+              value={signUpCreds.userType}
+              className="form-control"
+              id="userType"
+            >
+              <option value="">Select a user type</option>
+              <option value="Educator">Educator</option>
+              <option value="Researcher">Reseacher</option>
+              <option value="Editor">Editor</option>
+            </select>
           </div>
           <div className="form-group ">
             <div className="col-7"></div>
