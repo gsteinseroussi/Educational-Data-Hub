@@ -40,17 +40,15 @@ const App = () => {
           <Route exact path="/" component={Home} />
           <Route exact path="/researcher" component={Researcher} />
           <Route exact path="/educator" component={Educator} />
-          <Route exact path="/editor" component={Editor} />
+          {state.user.userType === "Editor" && (
+            <Route exact path="/editor" component={Editor} />
+          )}
+          <Redirect to="/" />
         </Switch>
       ) : (
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/researcher" component={Researcher} />
-          <Route exact path="/editor" component={Editor} />
-          <Route exact path="/educator" component={Educator} />
-          <Route exact path="/lessons/:id" component={Educator}/>
           <Redirect to="/login" />
         </Switch>
       )}
