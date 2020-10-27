@@ -100,7 +100,7 @@ const SignUp = () => {
               >
                 <option value="">Select your role</option>
                 <option value="Educator">an Educator</option>
-                <option value="Researcher">a Reseacher</option>
+                <option value="Researcher">a Researcher</option>
                 <option value="Editor">an Editor</option>
               </select>
             </div>
