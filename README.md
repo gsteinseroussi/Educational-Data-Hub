@@ -51,17 +51,17 @@ The three user types interact differently with EDS. Each user has directions on 
 2. The reseacher firsts submit the name of their article, their own name & an abstract of their research.
 
    ![Screen Shot 2020-10-25 at 9 18 58 PM](https://user-images.githubusercontent.com/64434411/97124756-b8594480-1707-11eb-8b73-60760aca766f.png)
-   
+
    Once the article information is submitted, the "Article Information" box is replaced with a file upload box. The researcher then submits their article as a PDF (other file types are also accepted) using our drag-and-drop file uploader, or by clicking if they prefer to select their file from a file tree.
-  
+
    ![Screen Shot 2020-10-25 at 9 20 58 PM](https://user-images.githubusercontent.com/64434411/97124811-ff473a00-1707-11eb-85b8-a1f8b2e093e6.png)
-  
+
 3. The editor is first presented with an article submitted by a researcher. After the editor completes the lesson plans based on the article, they will complete the upload form, including a link to the lesson plan as a Google Doc link which the educator will use to download the plan.
 
    ![Screen Shot 2020-10-25 at 9 43 50 PM](https://user-images.githubusercontent.com/64434411/97125719-2eab7600-170b-11eb-8538-781c046043da.png)
-   
+
    On the editors page, editors also have access to other articles.
-   
+
    ![Screen Shot 2020-10-25 at 9 49 23 PM](https://user-images.githubusercontent.com/64434411/97125973-f3f60d80-170b-11eb-91cf-e2b9b418e72d.png)
 
 ## Future Development
@@ -83,7 +83,7 @@ EDS has a great team!
 
 - <b>Paul Sloderbeck</b> created the drag-and-drop feature for the researcher file upload & worked mostly on back-end development, with front-end contributions. <br>Github profile: <https://github.com/paulsloderbeck> <br>Email: <paul.sloderbeck@gmail.com>
 
-- <b>Garrett Stein-Serrousi</b> created the grade-range selector. He created much of the front-end work, with back-end contributions. <br>Github profile: <https://github.com/gsteinseroussi> <br>Email: <gsteinseroussi@gmail.com>
+- <b>Garrett Stein-Serrousi</b> created the grade-range selector. He created much of the front-end work, along with the back-end of the educator and editor pages. <br>Github profile: <https://github.com/gsteinseroussi> <br>Email: <gsteinseroussi@gmail.com>
 
 ## Questions
 
