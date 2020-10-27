@@ -83,7 +83,7 @@ EDS has a great team!
 
 - <b>Paul Sloderbeck</b> created the drag-and-drop feature for the researcher file upload & worked mostly on back-end development, with front-end contributions. <br>Github profile: <https://github.com/paulsloderbeck> <br>Email: <paul.sloderbeck@gmail.com>
 
-- <b>Garrett Stein-Serousi</b> created the grade-range selector. He created much of the front-end work, along with the back-end of the educator and editor pages. <br>Github profile: <https://github.com/gsteinseroussi> <br>Email: <gsteinseroussi@gmail.com>
+- <b>Garrett Stein-Seroussi</b> created the grade-range selector. He created much of the front-end work, along with the back-end of the educator and editor pages. <br>Github profile: <https://github.com/gsteinseroussi> <br>Email: <gsteinseroussi@gmail.com>
 
 ## Questions
 
