@@ -1,14 +1,16 @@
+// importing required npm packages and files
 const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const passport = require("passport");
 const cors = require("cors");
-require("./database");
 
+// importing server connection from index.js in the database folder
 const mongooseConnection = require("./database");
 const routes = require("./routes");
 
+// setting up express server
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -29,10 +31,10 @@ app.use(
   session({
     secret: "RANDOM STRING",
     store: new MongoStore({
-      mongooseConnection
+      mongooseConnection,
     }),
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
   })
 );
 

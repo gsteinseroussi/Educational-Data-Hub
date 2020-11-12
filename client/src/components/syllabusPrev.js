@@ -1,7 +1,8 @@
-import { PromiseProvider } from "mongoose";
+// importing dependencies and files
 import React from "react";
 import "./edBrowseEtc.css";
 
+// Syllabus Prev component
 const SyllabusPrev = (props) => {
   return (
     <div className="card">

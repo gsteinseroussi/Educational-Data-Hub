@@ -4,25 +4,27 @@ import Dropzone from "react-dropzone";
 import axios from "axios";
 import API from "../utils/articleAPI";
 
-
+// component to allo drag and drop functionality
 function MyDropzone(props) {
   const [file, setFile] = useState(null);
   const [state, setState] = useState({
     title: "",
-    description: ""
+    description: "",
   });
+
   const [errorMsg, setErrorMsg] = useState("");
   const dropRef = useRef();
-  const articleID = props.articleID
+  const articleID = props.articleID;
   console.log(articleID);
-  
 
+  //
   const handleInputChange = (event) => {
     setState({
       ...state,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
+
   const onDrop = (files) => {
     const [uploadedFile] = files;
     setFile(uploadedFile);
@@ -32,19 +34,18 @@ function MyDropzone(props) {
       console.log("file:", reader.result);
     };
     reader.readAsDataURL(uploadedFile);
-    dropRef.current.style.border = '2px dashed #FFFFFF';
+    dropRef.current.style.border = "2px dashed #FFFFFF";
   };
 
   const updateBorder = (dragState) => {
-    if (dragState === 'over') {
-      dropRef.current.style.border = '2px solid #FFFFFF';
-    } else if (dragState === 'leave') {
-      dropRef.current.style.border = '2px dashed #FFFFFF'
+    if (dragState === "over") {
+      dropRef.current.style.border = "2px solid #FFFFFF";
+    } else if (dragState === "leave") {
+      dropRef.current.style.border = "2px dashed #FFFFFF";
     }
   };
 
-
-   const handleOnSubmit = async (event) => {
+  const handleOnSubmit = async (event) => {
     event.preventDefault();
 
     try {
@@ -54,7 +55,7 @@ function MyDropzone(props) {
         if (file) {
           const formData = new FormData();
 
-           formData.append("file", file);
+          formData.append("file", file);
           formData.append("title", title);
           formData.append("description", description);
           formData.append("articleID", articleID);
@@ -62,27 +63,28 @@ function MyDropzone(props) {
           setErrorMsg("");
           const fileResponse = await axios.post(`/api/files/upload`, formData, {
             headers: {
-              "Content-Type": "multipart/form-data"
-            }
+              "Content-Type": "multipart/form-data",
+            },
           });
-          console.log("articleId", articleID, "file response:", fileResponse)
-          API.addFileID(articleID, fileResponse.data.file._id)
-         } else {
-         setErrorMsg("Please select a file to add.");
+          console.log("articleId", articleID, "file response:", fileResponse);
+
+          API.addFileID(articleID, fileResponse.data.file._id);
+        } else {
+          setErrorMsg("Please select a file to add.");
         }
       } else {
         setErrorMsg("Please enter all field values");
       }
     } catch (error) {
-       error.response && setErrorMsg(error.response.data);
+      error.response && setErrorMsg(error.response.data);
     }
-   };
+  };
 
   return (
     <div className="container">
       <h2>Upload File</h2>
       <div className="form-group">
-      {errorMsg && <p className="errorMsg">{errorMsg}</p>}
+        {errorMsg && <p className="errorMsg">{errorMsg}</p>}
         <input
           className="form-control"
           onChange={handleInputChange}
@@ -99,13 +101,17 @@ function MyDropzone(props) {
         ></input>
       </div>
       <div className="upload-section">
-        <Dropzone onDrop={onDrop} onDragEnter={() => updateBorder('over')} onDragLeave={() => updateBorder('leave')}>
+        <Dropzone
+          onDrop={onDrop}
+          onDragEnter={() => updateBorder("over")}
+          onDragLeave={() => updateBorder("leave")}
+        >
           {({ getRootProps, getInputProps }) => (
             <div {...getRootProps({ className: "drop-zone" })} ref={dropRef}>
               <input {...getInputProps()} />
-              <br/>
+              <br />
               <p>Drag and drop file or Click here to select</p>
-              <br/>
+              <br />
               {file && (
                 <div>
                   <strong>Selected file:</strong> {file.name}
@@ -115,13 +121,15 @@ function MyDropzone(props) {
           )}
         </Dropzone>
       </div>
-      { <button
-        type="button"
-        className="btn btn-secondary"
-        onClick={handleOnSubmit}
-      >
-        Upload Article File (pdf, doc, xls, jpg accepted)
-      </button> }
+      {
+        <button
+          type="button"
+          className="btn btn-secondary"
+          onClick={handleOnSubmit}
+        >
+          Upload Article File (pdf, doc, xls, jpg accepted)
+        </button>
+      }
     </div>
   );
 }

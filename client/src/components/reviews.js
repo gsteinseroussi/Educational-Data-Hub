@@ -1,7 +1,9 @@
+// importing dependencies and files
 import React from "react";
 import Comments from "./comments";
 import "./edBrowseEtc.css";
 
+// component for review
 const Reviews = (props) => {
   return (
     <div className="card">
