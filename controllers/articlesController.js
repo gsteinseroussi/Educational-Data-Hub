@@ -49,7 +49,7 @@ module.exports = {
     console.log("req.body", req.body)
     db.Article.findOneAndUpdate(
       { _id: req.params.id },
-      { $set: { fileID: req.body.fileID}}
+      { $set: req.body}
     ).then((dbModel) =>
       res.json(dbModel).catch((err) => res.status(422).json(err))
     );

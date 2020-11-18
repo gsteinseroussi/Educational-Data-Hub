@@ -14,14 +14,14 @@ const EditorPreview = () => {
     loadArticle();
   }, []);
 
-  // useEffect(() => {
-  //   console.log("Value of article in state", article);
-  //   if (!article) {
-  //     return;
-  //   } else {
-  //     claimArticle(article._id);
-  //   }
-  // }, [article]);
+  useEffect(() => {
+    console.log("Value of article in state", article);
+    if (!article) {
+      return;
+    } else {
+      claimArticle(article._id);
+    }
+  }, [article]);
 
   //finds the article selected to edit and sets it to article
   function loadArticle() {
@@ -41,7 +41,7 @@ const EditorPreview = () => {
   }
 
   function claimArticle(id) {
-    API.claimArticle(id)
+    API.updateKeyValue(id, { claimed: true })
       .then((res) => res.json)
       .catch((err) => console.log(err));
   }

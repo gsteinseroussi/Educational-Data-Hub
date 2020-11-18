@@ -43,11 +43,15 @@ claimArticle: function(id){
     return axios.put("/api/articles/" + id, { claimed: true })
 },
 
-addFileID: function(articleID, fileID){
-    return axios.put("/api/articles/" + articleID, {
-        fileID: fileID
-    })
+// addFileID: function(articleID, fileID){
+//     return axios.put("/api/articles/" + articleID, {
+//         fileID: fileID
+//     })
 
+//     }
+
+updateKeyValue: function(articleID, { obj }){
+    return axios.put("/api/articles/" + articleID, {$set: obj})
     }
 
 }
