@@ -1,3 +1,4 @@
+// importing necessary dependencies and files
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import API from "../utils/commentAPI";
@@ -7,15 +8,17 @@ import "./edBrowseEtc.css";
 // component to display comments
 const Comments = (props) => {
   console.log("props for Comments", props.lesson);
-  // setting state for comments
 
+  // setting state for comments
   const [input, setInput] = useState("");
 
+  // function that is used by the event listener
   function handleCommentSubmit(event) {
     event.preventDefault();
     if (!input) return;
     console.log(props.lessonID);
 
+    // making the api call to backend save comments
     API.saveComments(input, props.lessonID).then((response) => {
       console.log(response);
       props.viewDetails(props.lessonID);
@@ -38,7 +41,7 @@ const Comments = (props) => {
           </li>
         ))}
       </ol>
-
+      {/* form that is submitting the comment */}
       <form className="form-inline" onSubmit={handleCommentSubmit}>
         <label>
           <textarea

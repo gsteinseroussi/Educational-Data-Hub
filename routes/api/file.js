@@ -1,10 +1,9 @@
+//Thank you Yogesh Chavan for the fantastic tutorial on this feature https://medium.com/javascript-in-plain-english/implement-file-upload-and-download-functionality-using-mern-stack-with-image-preview-685bb989f4e8
 const path = require("path");
 const express = require("express");
 const multer = require("multer");
 const File = require("../../database/models/file");
 const router = express.Router();
-
-
 
 const upload = multer({
   storage: multer.diskStorage({
@@ -13,10 +12,10 @@ const upload = multer({
     },
     filename(req, file, cb) {
       cb(null, `${new Date().getTime()}_${file.originalname}`);
-    }
+    },
   }),
   limits: {
-    fileSize: 10000000 // max file size: 10 MB
+    fileSize: 10000000, // max file size: 10 MB
   },
   fileFilter(req, file, cb) {
     if (
@@ -31,7 +30,7 @@ const upload = multer({
       );
     }
     cb(undefined, true); //continue with upload
-  }
+  },
 });
 
 //post file route
@@ -48,12 +47,13 @@ router.post(
         description,
         articleID,
         file_path: path,
-        file_mimetype: mimetype
+        file_mimetype: mimetype,
       });
-      console.log(file)
+      console.log(file);
       await file.save();
-      console.log(file)
-      res.json({message: "file uploaded succesfully", file});
+      console.log(file);
+
+      res.json({ message: "file uploaded succesfully", file });
     } catch (error) {
       res.status(400).send("error while uploading file");
     }
@@ -82,29 +82,26 @@ router.get("/getAllFiles", async (req, res) => {
 //getFilebyArticleId
 router.get("/getFilebyArticleID", async (req, res) => {
   try {
-    const fileID = req.body.fileID
-    const file = await File.findById({fileID});
+    const fileID = req.body.fileID;
+    const file = await File.findById({ fileID });
     res.send(file);
   } catch (error) {
     res.status(400).send("error while getting file for article");
   }
-  
-})
+});
 
 //download by id route
-router.get('/download/:id', async (req, res) => {
-  console.log("in download route", __dirname, path.join(__dirname, '..'))
+router.get("/download/:id", async (req, res) => {
+  console.log("in download route", __dirname, path.join(__dirname, ".."));
   try {
     const file = await File.findById(req.params.id);
     res.set({
-      'Content-Type': file.file_mimetype
+      "Content-Type": file.file_mimetype,
     });
-    res.sendFile(path.join(__dirname, '../..', file.file_path));
+    res.sendFile(path.join(__dirname, "../..", file.file_path));
   } catch (error) {
     res.status(400).send("Error downloading file.");
   }
 });
-
-
 
 module.exports = router;

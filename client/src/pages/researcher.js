@@ -22,6 +22,7 @@ function Researcher() {
   //handle submit for article collection
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
     //creates article
     if (
       formObject.articleName &&

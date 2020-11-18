@@ -4,7 +4,6 @@ import API from "../utils/articleAPI";
 
 import "../pages/editor.css";
 
-
 const EditorPreview = () => {
   const [article, setArticle] = useState({});
   const [file, setFile] = useState({});
@@ -13,15 +12,6 @@ const EditorPreview = () => {
   useEffect(() => {
     loadArticle();
   }, []);
-
-  useEffect(() => {
-    console.log("Value of article in state", article);
-    if (!article) {
-      return;
-    } else {
-      claimArticle(article._id);
-    }
-  }, [article]);
 
   //finds the article selected to edit and sets it to article
   function loadArticle() {
@@ -59,6 +49,7 @@ const EditorPreview = () => {
               <h4>Title: {article.articleName}</h4>
               <p>Link: {article.researchDocLink}</p>
               <p>Description: {article.articleAbstract}</p>
+              <p>File: {article.fileArray && article.fileArray[0].title}</p>
             </div>
           ) : (
             <h3>No Articles to Adapt</h3>

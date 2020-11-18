@@ -86,7 +86,7 @@ const SignUp = () => {
           <div className="form-group">
             <div className="col-1 col-ml-auto">
               <label className="form-label" htmlFor="userType">
-                User Type:
+                I am here as:
               </label>
             </div>
 
@@ -98,10 +98,10 @@ const SignUp = () => {
                 className="form-control"
                 id="userType"
               >
-                <option value="">Select a user type</option>
-                <option value="Educator">Educator</option>
-                <option value="Researcher">Reseacher</option>
-                <option value="Editor">Editor</option>
+                <option value="">Select your role</option>
+                <option value="Educator">an Educator</option>
+                <option value="Researcher">a Researcher</option>
+                <option value="Editor">an Editor</option>
               </select>
             </div>
           </div>
