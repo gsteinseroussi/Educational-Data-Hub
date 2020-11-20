@@ -39,7 +39,6 @@ const Editor = (props) => {
               </div>
             </div>
             <EditorPreview />
-            <FilesList />
           </div>
           <div className="col-md-6">
             <EditorUpload />
