@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/lessonAPI";
 import GradeSelector from "./gradeSelector";
+import { useHistory } from "react-router-dom";
 
 function EditorUpload() {
   // set component's initial state
@@ -10,6 +11,9 @@ function EditorUpload() {
     lessonAbstract: "",
     lessonName: "",
   });
+
+  const history = useHistory();
+
   const [gradeChoices, setGradeChoices] = useState({
     "k-5": false,
     "6-8": false,
@@ -61,7 +65,9 @@ function EditorUpload() {
             lessonAbstract: "",
             lessonName: "",
           });
+          history.push("/");
         })
+
         .catch((err) => console.log(err));
     }
   }

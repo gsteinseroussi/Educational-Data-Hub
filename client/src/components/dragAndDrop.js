@@ -3,6 +3,7 @@ import React, { useState, setState, useRef } from "react";
 import Dropzone from "react-dropzone";
 import axios from "axios";
 import API from "../utils/articleAPI";
+import { useHistory } from "react-router-dom";
 
 // component to allo drag and drop functionality
 function MyDropzone(props) {
@@ -11,6 +12,9 @@ function MyDropzone(props) {
     title: "",
     description: "",
   });
+
+  // useHistory hook will allow the code to redirect the page
+  const history = useHistory();
 
   const [errorMsg, setErrorMsg] = useState("");
   const dropRef = useRef();
@@ -68,7 +72,11 @@ function MyDropzone(props) {
           });
           console.log("articleId", articleID, "file response:", fileResponse);
 
-          API.addFileID(articleID, fileResponse.data.file._id);
+          let addFileData = await API.addFileID(
+            articleID,
+            fileResponse.data.file._id
+          );
+          history.push("/");
         } else {
           setErrorMsg("Please select a file to add.");
         }
@@ -76,6 +84,7 @@ function MyDropzone(props) {
         setErrorMsg("Please enter all field values");
       }
     } catch (error) {
+      console.log("error", error);
       error.response && setErrorMsg(error.response.data);
     }
   };
