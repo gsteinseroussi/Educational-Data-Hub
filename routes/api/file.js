@@ -40,12 +40,13 @@ router.post(
   async (req, res) => {
     console.log("req-body and file", req.body, req.file);
     try {
-      const { title, description, articleID } = req.body;
+      const { title, description, articleID, lessonID } = req.body;
       const { path, mimetype } = req.file;
       const file = new File({
         title,
         description,
         articleID,
+        lessonID,
         file_path: path,
         file_mimetype: mimetype,
       });
