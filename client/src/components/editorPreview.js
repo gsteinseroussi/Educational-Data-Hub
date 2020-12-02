@@ -48,21 +48,7 @@ const EditorPreview = () => {
     }
   };
 
-  const downloadFile = async (id, path, mimetype) => {
-    try {
-      const result = await axios.get(`/api/files/download/${id}`, {
-        responseType: "blob",
-      });
-      const split = path.split("/");
-      const filename = split[split.length - 1];
-      setErrorMsg("");
-      return download(result.data, filename, mimetype);
-    } catch (error) {
-      if (error.response && error.response.status === 400) {
-        setErrorMsg("error downloading file");
-      }
-    }
-  };
+
 
   function claimArticle(id) {
     API.claimArticle(id)
