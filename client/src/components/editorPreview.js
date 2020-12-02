@@ -1,8 +1,8 @@
 import { set } from "mongoose";
 import React, { useState, useEffect } from "react";
 import API from "../utils/articleAPI";
-import download from "downloadjs";
 import axios from "axios";
+import download from "downloadjs";
 
 import "../pages/editor.css";
 
@@ -32,6 +32,21 @@ const EditorPreview = () => {
       })
       .catch((err) => console.log(err));
   }
+  const downloadFile = async (id, path, mimetype) => {
+    try {
+      const result = await axios.get(`/api/files/download/${id}`, {
+        responseType: "blob",
+      });
+      const split = path.split("/");
+      const filename = split[split.length - 1];
+      setErrorMsg("");
+      return download(result.data, filename, mimetype);
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        setErrorMsg("error downloading file");
+      }
+    }
+  };
 
   const downloadFile = async (id, path, mimetype) => {
     try {
@@ -68,13 +83,19 @@ const EditorPreview = () => {
               <h4>Title: {article.articleName}</h4>
               <p>Link: {article.researchDocLink}</p>
               <p>Description: {article.articleAbstract}</p>
-              <p>File: {article.fileArray && article.fileArray[0].title}</p> 
+              <p>File: {article.fileArray && article.fileArray[0].title}</p>
               <a
-                          href="#/"
-                          onClick={() =>
-                            downloadFile(article.fileArray[0]._id, article.fileArray[0].file_path, article.fileArray[0].file_mimetype)
-                          }
-                        >Download</a>
+                href="#/"
+                onClick={() =>
+                  downloadFile(
+                    article.fileArray[0]._id,
+                    article.fileArray[0].file_path,
+                    article.fileArray[0].file_mimetype
+                  )
+                }
+              >
+                Download Article File
+              </a>
             </div>
           ) : (
             <h3>No Articles to Adapt</h3>
