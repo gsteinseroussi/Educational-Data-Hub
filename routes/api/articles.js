@@ -17,6 +17,9 @@ router
   // .put(articlesController.claimArticle)
   .delete(articlesController.remove);
 
+  router.route("/claimed/:id")
+  .put(articlesController.claimArticle);
+
   router
   .route("/comment/:id")
   .put(articlesController.updateComment)

@@ -50,7 +50,7 @@ const EditorPreview = () => {
   };
 
   function claimArticle(id) {
-    API.updateKeyValue(id, { claimed: true })
+    API.claimArticle(id)
       .then((res) => res.json)
       .catch((err) => console.log(err));
   }

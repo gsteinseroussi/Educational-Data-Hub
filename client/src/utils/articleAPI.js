@@ -40,7 +40,7 @@ editArticle: function(link, name, grade, subj, author, abstract, claimed){
 },
 
 claimArticle: function(id){
-    return axios.put("/api/articles/" + id, { claimed: true })
+    return axios.put("/api/articles/claimed" + id, { claimed: true })
 },
 
 // addFileID: function(articleID, fileID){
