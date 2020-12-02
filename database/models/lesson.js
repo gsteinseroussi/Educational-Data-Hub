@@ -10,6 +10,7 @@ const lessonSchema = new Schema({
   authorName: { type: String, default: "" },
   lessonAbstract: { type: String, default: "" },
   commentArray: [{ type: Schema.Types.ObjectId, ref: "Comments" }],
+  file: { type: Schema.Types.ObjectId, ref: "file" },
 });
 
 const Lesson = mongoose.model("Lesson", lessonSchema);

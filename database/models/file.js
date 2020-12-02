@@ -5,25 +5,27 @@ const fileSchema = mongoose.Schema(
     title: {
       type: String,
       retuired: true,
-      trim: true
+      trim: true,
     },
     description: {
       type: String,
       required: true,
-      trim: true
+      trim: true,
     },
     file_path: {
       type: String,
-      required: true
+      required: true,
     },
     file_mimetype: {
       type: String,
-      required: true
+      required: true,
     },
     articleID: {
       type: String,
-      required: true
-    }
+    },
+    lessonID: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

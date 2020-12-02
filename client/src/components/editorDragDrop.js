@@ -2,7 +2,7 @@
 import React, { useState, setState, useRef } from "react";
 import Dropzone from "react-dropzone";
 import axios from "axios";
-import API from "../utils/articleAPI";
+import API from "../utils/lessonAPI";
 import { useHistory } from "react-router-dom";
 
 // component to allo drag and drop functionality
@@ -18,8 +18,8 @@ function MyDropzone(props) {
 
   const [errorMsg, setErrorMsg] = useState("");
   const dropRef = useRef();
-  const articleID = props.articleID;
-  console.log(articleID);
+  const lessonID = props.lessonID;
+  console.log(lessonID);
 
   //
   const handleInputChange = (event) => {
@@ -62,7 +62,7 @@ function MyDropzone(props) {
           formData.append("file", file);
           formData.append("title", title);
           formData.append("description", description);
-          formData.append("articleID", articleID);
+          formData.append("lessonID", lessonID);
 
           setErrorMsg("");
           const fileResponse = await axios.post(`/api/files/upload`, formData, {
@@ -70,15 +70,15 @@ function MyDropzone(props) {
               "Content-Type": "multipart/form-data",
             },
           });
-          console.log("articleId", articleID, "file response:", fileResponse);
+          console.log("lessonId", lessonID, "file response:", fileResponse);
 
           let addFileData = await API.addFileID(
-            articleID,
+            lessonID,
             fileResponse.data.file._id
           );
           history.push("/");
         } else {
-          setErrorMsg("Please select a file to add.");
+          setErrorMsg("Please select a file to add");
         }
       } else {
         setErrorMsg("Please enter all field values");
@@ -98,7 +98,7 @@ function MyDropzone(props) {
           className="form-control"
           onChange={handleInputChange}
           name="title"
-          placeholder="Article File Name"
+          placeholder="Lesson File Name"
         ></input>
       </div>
       <div className="form-group">
@@ -106,7 +106,7 @@ function MyDropzone(props) {
           className="form-control mb-4"
           onChange={handleInputChange}
           name="description"
-          placeholder="Description of Article File"
+          placeholder="Description of Lesson File"
         ></input>
       </div>
       <div className="upload-section">
@@ -136,7 +136,7 @@ function MyDropzone(props) {
           className="btn btn-secondary"
           onClick={handleOnSubmit}
         >
-          Upload Article File (pdf, doc, xls, jpg accepted)
+          Upload Lesson File (pdf, doc, xls, jpg accepted)
         </button>
       }
     </div>
