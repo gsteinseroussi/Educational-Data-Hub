@@ -69,6 +69,7 @@ function MyDropzone(props) {
           console.log("articleId", articleID, "file response:", fileResponse);
 
           API.addFileID(articleID, fileResponse.data.file._id);
+          alert("File Uploaded Succesfully")
         } else {
           setErrorMsg("Please select a file to add.");
         }
